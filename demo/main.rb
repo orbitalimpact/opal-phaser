@@ -18,6 +18,7 @@ class Game
     end
     
     def create
+        `console.log(this.isBooted)`
         @game.add.text(100, 100, "test")
         @logo = @game.add.sprite(100, 100, "logo")
     end
