@@ -1,6 +1,10 @@
 module Phaser
     class Game < `Phaser.Game`
         Phaser::AUTO = `Phaser.AUTO`
+        
+        def add
+            `this.add`
+        end
     end
 end
 
