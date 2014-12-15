@@ -14,10 +14,11 @@ class Game
     end
     
     def preload
-        @game.load.image("logo", "phaser.png")
+        #@game.load.image("logo", "phaser.png")
     end
     
     def create
+        @game.add.text(100, 100, "test")
         @logo = @game.add.sprite(100, 100, "logo")
     end
 end
