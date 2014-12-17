@@ -3,7 +3,7 @@ require File.expand_path('../lib/opal/phaser/version', __FILE__)
 
 Gem::Specification.new do |s|
   s.name         = 'opal-phaser'
-  s.version      = Phaser::VERSION
+  s.version      = Opal::Phaser::VERSION
   s.author       = 'George Plymale'
   s.email        = 'george@orbitalimpact.com'
   s.homepage     = 'http://github.com/orbitalimpact/opal-phaser'
