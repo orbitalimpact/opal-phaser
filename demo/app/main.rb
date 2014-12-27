@@ -1,5 +1,5 @@
 require 'opal'
-require 'opal/phaserjs'
+require 'opal-phaser'
 
 class Game
   def initialize
@@ -10,7 +10,7 @@ class Game
     @score      = 0
     @score_text = nil
 
-    @phaser     = Phaserjs::Game.new(800, 654) do |state|
+    @phaser     = Phaser::Game.new(800, 654) do |state|
       state.preload do |game|
         game.load.image('sky',     'assets/sky.png')
         game.load.image('ground',  'assets/platform.png')
@@ -19,7 +19,7 @@ class Game
       end
 
       state.create do |game|
-        game.physics.start Phaserjs::Physics::ARCADE
+        game.physics.start Phaser::Physics::ARCADE
         game.add.sprite(0, 0, 'sky')
 
         @platforms = game.add.group()

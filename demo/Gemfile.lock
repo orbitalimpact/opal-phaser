@@ -1,7 +1,7 @@
 PATH
   remote: ..
   specs:
-    opal-phaserjs (0.0.1)
+    opal-phaser (0.0.1)
       opal (~> 0.6.0)
 
 GEM
@@ -33,5 +33,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  opal-phaserjs!
+  opal-phaser!
   sinatra

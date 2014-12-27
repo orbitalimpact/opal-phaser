@@ -1,10 +1,10 @@
 require 'native'
-module Phaserjs
+module Phaser
   AUTO = %x{ Phaser.AUTO }
 
   class Game
     include ::Native
-    def initialize(width, height, renderer = Phaserjs::AUTO,
+    def initialize(width, height, renderer = Phaser::AUTO,
                   parent = '', state = nil, transparent = false, antialias = true,
                   physics = nil, &block)
 

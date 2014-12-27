@@ -1,4 +1,4 @@
-module Phaserjs
+module Phaser
   class State
     attr_writer :game
     def initialize(game = nil, &block)

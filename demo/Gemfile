@@ -2,4 +2,4 @@
 source 'https://rubygems.org'
 
 gem 'sinatra'
-gem 'opal-phaserjs', path: '..'
+gem 'opal-phaser', path: '..'

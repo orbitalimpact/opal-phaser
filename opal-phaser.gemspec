@@ -1,12 +1,12 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/opal/phaserjs/version', __FILE__)
+require File.expand_path('../lib/opal/phaser/version', __FILE__)
 
 Gem::Specification.new do |s|
-  s.name         = 'opal-phaserjs'
+  s.name         = 'opal-phaser'
   s.version      = Opal::Phaser::VERSION
   s.author       = 'George Plymale'
   s.email        = 'george@orbitalimpact.com'
-  s.homepage     = 'http://github.com/orbitalimpact/opal-phaserjs'
+  s.homepage     = 'http://github.com/orbitalimpact/opal-phaser'
   s.summary      = 'Opal access to phaser'
   s.description  = 'Opal DOM library for phaser'
 

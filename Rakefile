@@ -9,7 +9,7 @@ task :dist do
   require 'fileutils'
   FileUtils.mkdir_p 'build'
 
-  src = Opal::Builder.build('opal-phaserjs')
+  src = Opal::Builder.build('opal-phaser')
   min = uglify src
   gzp = gzip min
 
