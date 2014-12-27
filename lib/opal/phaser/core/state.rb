@@ -34,7 +34,8 @@ module Phaser
 
     def to_n
       %x{
-        var obj = { preload: #@preload, create: #@create }
+        var obj = { preload: #@preload, create: #@create, update: #@update,
+                    render: #@render }
       }
 
       return %x{ obj }
