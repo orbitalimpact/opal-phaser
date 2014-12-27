@@ -1,6 +1,7 @@
-![div](https://raw.githubusercontent.com/orbitalimpact/opal-phaserjs/master/common/images/logo.png)
-
 # opal-phaserjs
+
+![div](https://raw.githubusercontent.com/orbitalimpact/opal-phaserjs/master/common/images/logo.png){: style="float:right:width:30%;"}
+
 The goal of this project is to completely wrap the Phaser api in opal, to allow developers to write HTML5 and WebGL games entirely from ruby code.
 
 If you have not heard of Phaser, check out these links:
