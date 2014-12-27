@@ -43,8 +43,8 @@ class Game
         @player.body.gravity.y = 300
         @player.body.collideWorldBounds = true
 
-        @player.animations.add('left', [0, 1, 2, 3], 10, true);
-        @player.animations.add('right', [5, 6, 7, 8], 10, true);
+        @player.animations.add('left', [0, 1, 2, 3], 10, true)
+        @player.animations.add('right', [5, 6, 7, 8], 10, true)
 
         @stars = game.add.group()
         @stars.enableBody = true
@@ -58,7 +58,7 @@ class Game
 
         @scoreText = game.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' })
 
-        @cursors = game.input.keyboard.createCursorKeys();
+        @cursors = game.input.keyboard.createCursorKeys()
       end
 
       state.update do |game|
