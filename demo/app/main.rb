@@ -15,11 +15,11 @@ class Game
         game.load.image('sky',     'assets/sky.png')
         game.load.image('ground',  'assets/platform.png')
         game.load.image('star',    'assets/star.png')
-        game.load.image('dude',    'assets/dude.png',    32,  48)
+        game.load.spritesheet('dude',    'assets/dude.png',    32,  48)
       end
 
       state.create do |game|
-        game.physics.start Phaser::Physics::ARCADE
+        game.physics.startSystem(Phaser::Physics::ARCADE)
         game.add.sprite(0, 0, 'sky')
 
         @platforms = game.add.group()
@@ -36,7 +36,7 @@ class Game
         ledge = @platforms.create(-150, 250, 'ground')
         ledge.body.immovable = true
 
-        @player = game.add.sprite(32, game.world.height - 150, 'dude')
+        @player = game.add.sprite(32, game.world.height - 150, 'dude', 4)
 
         game.physics.arcade.enable(@player)
 
@@ -64,7 +64,31 @@ class Game
 
       state.update do |game|
         game.physics.arcade.collide(@player, @platforms);
+        game.physics.arcade.collide(@stars, @platforms);
+
+        @player.body.velocity.x = 0
+
+        if @cursors.left.isDown
+          @player.body.velocity.x = -150
+          @player.animations.play('left')
+        elsif @cursors.right.isDown
+          @player.body.velocity.x = 150
+          @player.animations.play('right')
+        else
+          @player.animations.stop
+          @player.frame = 4
+        end
+
+        if @cursors.up.isDown && @player.body.touching.down
+          @player.body.velocity.y = -350
+        end
       end
     end
+  end
+
+  def collectStart(player, star)
+    star.kill
+    @score += 10
+    @scoreText.text = 'Score: ' + score
   end
 end
