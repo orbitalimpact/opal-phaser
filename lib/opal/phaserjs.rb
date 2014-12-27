@@ -1,5 +1,6 @@
 if RUBY_ENGINE == 'opal'
   require 'opal/phaserjs/core'
+  require 'opal/phaserjs/physics'
 else
   require 'opal'
   require 'opal/phaserjs/version'

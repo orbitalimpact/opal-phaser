@@ -14,6 +14,12 @@ GEM
       source_map
       sprockets
     rack (1.6.0)
+    rack-protection (1.5.3)
+      rack
+    sinatra (1.4.5)
+      rack (~> 1.4)
+      rack-protection (~> 1.4)
+      tilt (~> 1.3, >= 1.3.4)
     source_map (3.0.1)
       json
     sprockets (2.12.3)
@@ -28,3 +34,4 @@ PLATFORMS
 
 DEPENDENCIES
   opal-phaserjs!
+  sinatra

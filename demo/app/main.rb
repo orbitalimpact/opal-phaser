@@ -12,10 +12,10 @@ class Game
 
     @phaser     = Phaserjs::Game.new(800, 654) do |state|
       state.preload do |game|
-        game.load.image('sky', 'assets/sky.png')
-        game.load.image('ground', 'assets/ground.png')
-        game.load.image('star', 'assets/star.png')
-        game.load.image('dude', 'assets/dude.png', 32, 48)
+        game.load.image('sky',     'assets/sky.png')
+        game.load.image('ground',  'assets/platform.png')
+        game.load.image('star',    'assets/star.png')
+        game.load.image('dude',    'assets/dude.png',    32,  48)
       end
 
       state.create do |game|
@@ -27,7 +27,6 @@ class Game
 
         ground = @platforms.create(0, game.world.height - 64, 'ground')
 
-        %x{ console.log(ground.scale) }
         ground.scale.to(2, 2)
         ground.body.immovable = true
 
@@ -62,9 +61,9 @@ class Game
 
         @cursors = game.input.keyboard.createCursorKeys()
       end
-    end
 
-    state.update do |game|
+      state.update do |game|
+      end
     end
   end
 end
