@@ -28,6 +28,7 @@ module Phaserjs
     alias_native :load, :load
     alias_native :add, :add
     alias_native :world, :world
+    alias_native :physics, :physics
 
   end
 
