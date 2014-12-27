@@ -1,5 +1,7 @@
+# config.ru
 require 'bundler'
 Bundler.require
+require 'opal'
 
 run Opal::Server.new { |s|
   s.append_path 'app'
