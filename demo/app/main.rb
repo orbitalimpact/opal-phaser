@@ -62,15 +62,15 @@ class Game
       end
 
       state.update do |game|
-        game.physics.arcade.collide(@player, @platforms);
-        game.physics.arcade.collide(@stars, @platforms);
+        game.physics.arcade.collide(@player, @platforms)
+        game.physics.arcade.collide(@stars, @platforms)
 
         collectStar = proc do |player, star|
           %x{ star.kill() }
           @score += 10
           @scoreText.text = "Score: #@score"
         end
-        game.physics.arcade.overlap(@player, @stars, collectStar, nil, self);
+        game.physics.arcade.overlap(@player, @stars, collectStar, nil, self)
 
         @player.body.velocity.x = 0
 
