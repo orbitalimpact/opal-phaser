@@ -7,8 +7,6 @@ class Game
     @platforms  = nil
     @cursors    = nil
     @stars      = nil
-    @score      = 0
-    @score_text = nil
 
     @phaser     = Phaser::Game.new(800, 654) do |state|
       state.preload do |game|
@@ -19,6 +17,7 @@ class Game
       end
 
       state.create do |game|
+        @score      = 0
         game.physics.startSystem(Phaser::Physics::ARCADE)
         game.add.sprite(0, 0, 'sky')
 
@@ -66,6 +65,13 @@ class Game
         game.physics.arcade.collide(@player, @platforms);
         game.physics.arcade.collide(@stars, @platforms);
 
+        collectStar = proc do |player, star|
+          %x{ star.kill() }
+          @score += 10
+          @scoreText.text = "Score: #@score"
+        end
+        game.physics.arcade.overlap(@player, @stars, collectStar, nil, self);
+
         @player.body.velocity.x = 0
 
         if @cursors.left.isDown
@@ -86,9 +92,6 @@ class Game
     end
   end
 
-  def collectStart(player, star)
-    star.kill
-    @score += 10
-    @scoreText.text = 'Score: ' + score
+  def collectStar
   end
 end

@@ -11,7 +11,7 @@ module Phaser
       @render  = proc {}
 
       if block_given?
-        instance_eval(&block)
+        block.call(@game)
       end
     end
 
