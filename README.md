@@ -14,14 +14,14 @@ If you have not heard of Phaser, check out these links:
 ## Cloning this repository
 
 ```
-$ git clone https://github.com/orbitalimpact/opal-phaserjs
+$ git clone https://github.com/orbitalimpact/opal-phaser
 ```
 
 ## Getting involved
 
 To contribute to this project, follow the steps below.
 
-1. Fork the repo ( https://github.com/orbitalimpact/opal-phaserjs/fork )
+1. Fork the repo ( https://github.com/orbitalimpact/opal-phaser-examples/fork )
 2. Create your feature branch (`git checkout -b new-branch`)
 3. Commit your changes (`git commit -am 'description of commit'`)
 4. Push to the branch (`git push origin new-branch`)

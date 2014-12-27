@@ -1,4 +1,4 @@
 #Gemfile
 source 'https://rubygems.org'
 
-gem 'opal-phaserjs', path: '..'
+gem 'opal-phaser', path: '..'

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    opal-phaserjs (0.0.1)
+    opal-phaser (0.0.1)
       opal (~> 0.6.0)
 
 GEM
@@ -13,7 +13,7 @@ GEM
     opal (0.6.3)
       source_map
       sprockets
-    rack (1.6.0)
+    rack (1.5.2)
     rake (10.4.2)
     source_map (3.0.1)
       json
@@ -29,6 +29,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  opal-phaserjs!
+  opal-phaser!
   rake
   yard
