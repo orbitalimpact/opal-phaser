@@ -17,20 +17,19 @@ module Phaser
 
 
     def preload(&block)
-      puts "State preload"
-      @preload = block
+      @preload = proc { block.call(@game) }
     end
 
     def create(&block)
-      @create = block
+      @create = proc { block.call(@game) }
     end
 
     def update(&block)
-      @update = block
+      @update = proc { block.call(@game) }
     end
 
     def render(&block)
-      @render = block
+      @render = proc { block.call(@game) }
     end
 
     def to_n

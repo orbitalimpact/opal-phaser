@@ -1,7 +1,9 @@
+require 'native'
 module Phaser
   AUTO = %x{ Phaser.AUTO }
 
   class Game
+    include ::Native
     def initialize(width, height, renderer = Phaser::AUTO,
                   parent = '', state = nil, transparent = false, antialias = true,
                   physics = nil, &block)
@@ -16,11 +18,17 @@ module Phaser
         state.instance_eval(&block)
       end
 
-      @native = %x{
+      _native = %x{
         new Phaser.Game(width, height, renderer, parent, #{state.to_n}, transparent,
                         antialias, physics)
       }
+      super(_native)
     end
+
+    alias_native :load, :load
+    alias_native :add, :add
+    alias_native :world, :world
+
   end
 
 end
