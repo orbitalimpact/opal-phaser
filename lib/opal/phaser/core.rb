@@ -1,5 +1,2 @@
-module Phaser
-  AUTO = %x{ Phaser.AUTO }
-  class Game < %x{ Phaser.Game }
-  end
-end
+require 'opal/phaser/core/state'
+require 'opal/phaser/core/game'
