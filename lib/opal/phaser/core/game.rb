@@ -1,6 +1,8 @@
 require 'native'
 module Phaser
   AUTO = %x{ Phaser.AUTO }
+  WEBGL = %x{ Phaser.WEBGL }
+  CANVAS = %x{ Phaser.CANVAS }
 
   class Game
     include ::Native
