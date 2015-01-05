@@ -21,7 +21,7 @@ $ git clone https://github.com/orbitalimpact/opal-phaser
 
 To contribute to this project, follow the steps below.
 
-1. Fork the repo ( https://github.com/orbitalimpact/opal-phaser-examples/fork )
+1. Fork the repo ( https://github.com/orbitalimpact/opal-phaser/fork )
 2. Create your feature branch (`git checkout -b new-branch`)
 3. Commit your changes (`git commit -am 'description of commit'`)
 4. Push to the branch (`git push origin new-branch`)
