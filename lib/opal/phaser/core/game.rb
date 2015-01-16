@@ -30,6 +30,7 @@ module Phaser
     alias_native :load, :load
     alias_native :add, :add
     alias_native :world, :world
+    alias_native :staged. :staged
     alias_native :physics, :physics
     alias_native :debug, :debug
     alias_native :input, :input
