@@ -4,6 +4,10 @@ module Phaser
       Sprite.new
     end
     
+    def group
+      Group.new
+    end
+    
     def text
       Text.new
     end
