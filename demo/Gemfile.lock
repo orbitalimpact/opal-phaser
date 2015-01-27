@@ -1,14 +1,14 @@
 PATH
   remote: ..
   specs:
-    opal-phaser (0.0.3)
+    opal-phaser (0.0.4)
       opal (~> 0.6.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
     hike (1.2.3)
-    json (1.8.1)
+    json (1.8.2)
     multi_json (1.10.1)
     opal (0.6.3)
       source_map

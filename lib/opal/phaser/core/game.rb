@@ -26,9 +26,12 @@ module Phaser
       }
       super(_native)
     end
-
+    
+    def add
+      GameObjectFactory.new
+    end
+    
     alias_native :load, :load
-    alias_native :add, :add
     alias_native :world, :world
     alias_native :stage, :stage
     alias_native :physics, :physics
