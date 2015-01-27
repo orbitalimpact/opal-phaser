@@ -8,6 +8,10 @@ module Phaser
       Group.new
     end
     
+    def image
+      Image.new
+    end
+    
     def text
       Text.new
     end
