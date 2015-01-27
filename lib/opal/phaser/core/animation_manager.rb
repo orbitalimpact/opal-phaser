@@ -1,7 +1,7 @@
 module Phaser
   class AnimationManager
     def add
-      Phaser::Animation.new
+      Animation.new
     end
   end
 end
