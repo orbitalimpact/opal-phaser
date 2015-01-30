@@ -6,7 +6,7 @@ module Phaser
     end
 
     def sprite(*args)
-      Sprite.new(*args)
+      Sprite.new(@game, *args)
     end
 
     def group(*args)
@@ -14,15 +14,15 @@ module Phaser
     end
 
     def image(*args)
-      Image.new(*args)
+      Image.new(@game, *args)
     end
 
     def text(*args)
-      Text.new(*args)
+      Text.new(@game, *args)
     end
 
     def tween(*args)
-      Tween.new(*args)
+      Tween.new(@game, *args)
     end
   end
 end
