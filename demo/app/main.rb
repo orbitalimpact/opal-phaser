@@ -22,7 +22,7 @@ class Game
         game.add.sprite(0, 0, 'sky')
 
         @platforms = game.add.group()
-        @platforms.enableBody = true
+        @platforms.enable_body = true
 
         ground = @platforms.create(0, game.world.height - 64, 'ground')
 

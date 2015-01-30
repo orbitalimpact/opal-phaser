@@ -6,9 +6,13 @@ module Phaser
 
   class Game
     include ::Native
+
+    attr_reader :add
+
     def initialize(width, height, renderer = Phaser::AUTO,
                   parent = '', state = nil, transparent = false, antialias = true,
                   physics = nil, &block)
+      @add = GameObjectFactory.new(self)
 
       if state
         state.game = self
@@ -26,17 +30,16 @@ module Phaser
       }
       super(_native)
     end
-    
-    def add
-      GameObjectFactory.new
-    end
-    
+
+
+
     alias_native :load, :load
     alias_native :world, :world
     alias_native :stage, :stage
     alias_native :physics, :physics
     alias_native :debug, :debug
     alias_native :input, :input
+    alias_native :cache, :cache
 
   end
 

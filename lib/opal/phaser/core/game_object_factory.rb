@@ -1,23 +1,28 @@
 module Phaser
   class GameObjectFactory
-    def sprite
-      Sprite.new
+    def initialize(game)
+      @game   = game
+      @native = %x{ new Phaser.GameObjectFactory(game) }
     end
-    
-    def group
-      Group.new
+
+    def sprite(*args)
+      Sprite.new(*args)
     end
-    
-    def image
-      Image.new
+
+    def group(*args)
+      Group.new(@game, *args)
     end
-    
-    def text
-      Text.new
+
+    def image(*args)
+      Image.new(*args)
     end
-    
-    def tween
-      Tween.new
+
+    def text(*args)
+      Text.new(*args)
+    end
+
+    def tween(*args)
+      Tween.new(*args)
     end
   end
 end

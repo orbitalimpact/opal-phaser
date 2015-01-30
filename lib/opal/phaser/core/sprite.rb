@@ -1,27 +1,16 @@
 module Phaser
   class Sprite
-    def self.new(game, x, y, key, frame)
-      `new Phaser.Sprite(game, x, y, key, frame)`
+    def initialize(game, x, y, key, frame)
+      @native = `new Phaser.Sprite(game, x, y, key, frame)`
     end
-    
-    def anchor
-      %x{ new PIXI.Point() }
-    end
-    
+
+    alias_native :anchor,        :anchor
+    alias_native :body,          :body
+    alias_native :events,        :events
+    alias_native :input_enable,  :inputEnabled
+
     def animations
-      AnimationManager.new
-    end
-    
-    def body
-      %x{ Phaser.Sprite.body }
-    end
-    
-    def inputEnabled
-      %x{ Phaser.Sprite.inputEnabled }
-    end
-    
-    def events
-      %x{ Phaser.Events.new }
+      @animations ||= AnimationManager.new(self)
     end
   end
 end
