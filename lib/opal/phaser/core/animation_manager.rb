@@ -1,6 +1,6 @@
 module Phaser
   class AnimationManager
-    def self.new(sprite)
+    def initialize (sprite)
       `new Phaser.AnimationManager`
     end
     

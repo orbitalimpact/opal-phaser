@@ -1,6 +1,6 @@
 module Phaser
   class Image
-    def self.new(game, x, y, key)
+    def initialize (game, x, y, key)
       `new Phaser.Image(game, x, y, key)`
     end
     
