@@ -4,8 +4,6 @@ module Phaser
       `new Phaser.Image(game, x, y, key)`
     end
     
-    def scale
-      %x{ Phaser.Image.scale }
-    end
+    alias_native :scale, :scale
   end
 end
