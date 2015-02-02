@@ -2,7 +2,8 @@ module Phaser
   class GameObjectFactory
     def initialize(game)
       @game   = game
-      @native = %x{ #{game.to_n}.add }
+      @native_game = game.to_n
+      @native = %x{ #{@native_game}.add }
     end
 
     def sprite(*args)

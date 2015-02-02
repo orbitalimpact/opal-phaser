@@ -1,7 +1,8 @@
 module Phaser
   class Sprite
     def initialize(game, x, y, key, frame)
-      @native = `new Phaser.Sprite(#{game.to_n}, x, y, key, frame)`
+      @game = game.to_n
+      @native = `new Phaser.Sprite(#{@game}, x, y, key, frame)`
     end
 
     alias_native :anchor,        :anchor
