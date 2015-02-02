@@ -13,6 +13,7 @@ module Phaser
                   parent = '', state = nil, transparent = false, antialias = true,
                   physics = nil, &block)
       @add = GameObjectFactory.new(self)
+      @cache = Cache.new(self)
 
       if state
         state.game = self
