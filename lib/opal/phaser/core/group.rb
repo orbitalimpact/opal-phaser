@@ -3,7 +3,7 @@ module Phaser
     include ::Native
     def initialize(game, parent, name, addToStage, enableBody, physicsBodyType)
       @game = game
-      _native = `new Phaser.Group(game, parent, name, addToStage, enableBody, physicsBodyType)`
+      _native = `new Phaser.Group(#{game.to_n}, parent, name, addToStage, enableBody, physicsBodyType)`
       super(_native)
     end
 

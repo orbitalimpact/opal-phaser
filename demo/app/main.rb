@@ -1,5 +1,6 @@
 require 'opal'
 require 'opal-phaser'
+require 'pp'
 
 class Game
   def initialize

@@ -5,15 +5,13 @@ module Phaser
   CANVAS = %x{ Phaser.CANVAS }
 
   class Game
-    include ::Native
+    include Native
 
     attr_reader :add
 
     def initialize(width, height, renderer = Phaser::AUTO,
                   parent = '', state = nil, transparent = false, antialias = true,
                   physics = nil, &block)
-      @add = GameObjectFactory.new(self)
-      @cache = Cache.new(self)
 
       if state
         state.game = self
@@ -25,14 +23,17 @@ module Phaser
         state.instance_eval(&block)
       end
 
-      _native = %x{
+      @native = %x{
         new Phaser.Game(width, height, renderer, parent, #{state.to_n}, transparent,
                         antialias, physics)
       }
-      super(_native)
+      @add = GameObjectFactory.new(self)
+      @cache = Cache.new(self)
     end
 
-
+    def to_n
+      @native
+    end
 
     alias_native :load, :load
     alias_native :world, :world
@@ -40,7 +41,7 @@ module Phaser
     alias_native :physics, :physics
     alias_native :debug, :debug
     alias_native :input, :input
-    alias_native :cache, :cache
+    # alias_native :cache, :cache
 
   end
 

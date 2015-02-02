@@ -1,8 +1,7 @@
 module Phaser
   class Cache
     def initialize (game)
-      _native = `new Phaser.Cache(game)`
-      super(_native)
+      @native = %x{ #{game.to_n}.cache }
     end
   end
 end
