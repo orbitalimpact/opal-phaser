@@ -8,8 +8,16 @@ module Phaser
     alias_native :anchor,        :anchor
     alias_native :body,          :body
     alias_native :events,        :events
-    alias_native :input_enable,  :inputEnabled
+    
 
+    def input_enable=
+      `self["native"].inputEnabled`
+    end
+    
+    def scale
+      `self["native"].scale`
+    end
+    
     def animations
       @animations ||= AnimationManager.new(self)
     end
