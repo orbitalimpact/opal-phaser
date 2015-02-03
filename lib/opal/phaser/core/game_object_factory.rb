@@ -3,7 +3,7 @@ module Phaser
     def initialize(game)
       @game   = game
       @native_game = game.to_n
-      @native = %x{ #{@native_game}.add }
+      @native = `#{@native_game}.add`
     end
 
     def sprite(*args)
