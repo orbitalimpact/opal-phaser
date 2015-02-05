@@ -15,7 +15,13 @@ module Phaser
     end
     
     def scale
-      `self["native"].scale`
+      _native = `new PIXI.Point(1, 1)`
+      
+      def set_to (x, y)
+        `_native.setTo(x, y)`
+      end
+      
+      _native
     end
     
     def animations
