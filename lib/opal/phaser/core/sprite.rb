@@ -13,7 +13,7 @@ module Phaser
     end
     
     def input_enable=
-      `self["native"].inputEnabled`
+      Native(`#@native.inputEnabled`)
     end
     
     def scale
