@@ -6,22 +6,18 @@ module Phaser
     end
 
     alias_native :anchor,        :anchor
-    alias_native :body,          :body
     alias_native :events,        :events
     
-
+    def body
+      Native(`#@native.body`)
+    end
+    
     def input_enable=
       `self["native"].inputEnabled`
     end
     
     def scale
-      _native = `new PIXI.Point(1, 1)`
-      
-      def set_to (x, y)
-        `_native.setTo(x, y)`
-      end
-      
-      _native
+      Native(`#@native.scale`)
     end
     
     def animations

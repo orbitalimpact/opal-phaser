@@ -27,7 +27,7 @@ class Game
 
         ground = @platforms.create(0, game.world.height - 64, 'ground')
 
-        ground.scale.set_to(2, 2)
+        ground.scale.setTo(2, 2)
         ground.body.immovable = true
 
         ledge = @platforms.create(400, 400, 'ground')
