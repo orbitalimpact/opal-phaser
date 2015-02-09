@@ -2,97 +2,75 @@ require 'opal'
 require 'opal-phaser'
 require 'pp'
 
+class Platforms
+  attr_accessor :ground_object
+  attr_accessor :platforms
+
+  def initialize(game)
+    @sprite_key = 'ground'
+    @sprite_url = 'assets/platform.png'
+    @game       = game
+
+  end
+
+  def preload
+    @game.load.image(@sprite_key, @sprite_url)
+  end
+
+  def create
+    @game.physics.startSystem(Phaser::Physics::ARCADE)
+    @platforms = @game.add.group
+    @platforms.enable_body = true
+
+    create_ground
+    create_ledge(400, 400)
+    create_ledge(-150, 250)
+  end
+
+  private
+
+  def create_ground
+    ground = @platforms.create(0, @game.world.height - 64, @sprite_key)
+    ground.scale.setTo(2, 2)
+    ground.body.immovable = true
+  end
+
+  def create_ledge(x, y)
+    ledge = @platforms.create(x, y, @sprite_key)
+    ledge.body.immovable = true
+  end
+end
+
 class Game
+  attr_accessor :game_debug
+
   def initialize
-    @player     = nil
-    @platforms  = nil
-    @cursors    = nil
-    @stars      = nil
+    run
+  end
 
-    @phaser     = Phaser::Game.new(800, 654) do |state|
-      state.preload do |game|
-        game.load.image('sky',     'assets/sky.png')
-        game.load.image('ground',  'assets/platform.png')
-        game.load.image('star',    'assets/star.png')
-        game.load.spritesheet('dude',    'assets/dude.png',    32,  48)
-      end
+  def run
+    preload
+    create_game
+    Phaser::Game.new(800, 674, Phaser::AUTO, '', state)
+  end
 
-      state.create do |game|
-        @score      = 0
-        game.physics.startSystem(Phaser::Physics::ARCADE)
-        game.add.sprite(0, 0, 'sky')
+  private
 
-        @platforms = game.add.group()
-        @platforms.enable_body = true
-
-        ground = @platforms.create(0, game.world.height - 64, 'ground')
-
-        ground.scale.setTo(2, 2)
-        ground.body.immovable = true
-
-        ledge = @platforms.create(400, 400, 'ground')
-        ledge.body.immovable = true
-
-        ledge = @platforms.create(-150, 250, 'ground')
-        ledge.body.immovable = true
-
-        @player = game.add.sprite(32, game.world.height - 150, 'dude', 4)
-
-        game.physics.arcade.enable(@player)
-
-        @player.body.bounce.y = 0.2
-        @player.body.gravity.y = 300
-        @player.body.collideWorldBounds = true
-
-        @player.animations.add('left', [0, 1, 2, 3], 10, true)
-        @player.animations.add('right', [5, 6, 7, 8], 10, true)
-
-        @stars = game.add.group()
-        @stars.enableBody = true
-
-        12.times do |i|
-          star = @stars.create(i*70, 0, 'star')
-
-          star.body.gravity.y = 300
-          star.body.bounce.y = 0.7 + rand * 0.2
-        end
-
-        @scoreText = game.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' })
-
-        @cursors = game.input.keyboard.createCursorKeys()
-      end
-
-      state.update do |game|
-        game.physics.arcade.collide(@player, @platforms)
-        game.physics.arcade.collide(@stars, @platforms)
-
-        collectStar = proc do |player, star|
-          %x{ star.kill() }
-          @score += 10
-          @scoreText.text = "Score: #@score"
-        end
-        game.physics.arcade.overlap(@player, @stars, collectStar, nil, self)
-
-        @player.body.velocity.x = 0
-
-        if @cursors.left.isDown
-          @player.body.velocity.x = -150
-          @player.animations.play('left')
-        elsif @cursors.right.isDown
-          @player.body.velocity.x = 150
-          @player.animations.play('right')
-        else
-          @player.animations.stop
-          @player.frame = 4
-        end
-
-        if @cursors.up.isDown && @player.body.touching.down
-          @player.body.velocity.y = -350
-        end
-      end
+  def preload
+    state.preload do |game|
+      @game_debug = game
+      @platforms = Platforms.new(game)
+      @platforms.preload
     end
   end
 
-  def collectStar
+  def create_game
+    state.create do
+      @platforms.create
+    end
+  end
+
+  def state
+    @state ||= Phaser::State.new
   end
 end
