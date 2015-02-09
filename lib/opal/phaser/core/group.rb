@@ -11,7 +11,7 @@ module Phaser
     alias_native :body, :body
     alias_native :enable_body=, :enableBody
     alias_native :enable_body, :enableBody
-    
+
     def create (*args)
       Sprite.new(@game, *args)
     end
