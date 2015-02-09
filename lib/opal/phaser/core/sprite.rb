@@ -9,7 +9,7 @@ module Phaser
     alias_native :events,        :events
     
     def body
-      Native(`#@native.body`)
+      Physics::Arcade::Body.new(self)
     end
     
     def input_enable=
