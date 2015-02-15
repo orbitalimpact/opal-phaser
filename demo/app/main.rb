@@ -19,7 +19,7 @@ class Platforms
   def create
     @game.physics.startSystem(Phaser::Physics::ARCADE)
     @platforms = @game.add.group
-    @platforms.enable_body = true
+    @platforms.enableBody = true
 
     @platforms.create(400, 400, 'ground')
 
@@ -33,11 +33,13 @@ class Platforms
   def create_ground
     ground = @platforms.create(0, @game.world.height - 64, @sprite_key)
     ground.scale.setTo(2, 2)
+    ground.body.immovable = true
   end
 
   def create_ledge(x, y)
     ledge = @platforms.create(x, y, @sprite_key)
     ledge.scale.setTo(2, 2)
+    ledge.body.immovable = true
   end
 end
 
