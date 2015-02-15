@@ -10,7 +10,6 @@ class Platforms
     @sprite_key = 'ground'
     @sprite_url = 'assets/platform.png'
     @game       = game
-
   end
 
   def preload
@@ -22,7 +21,6 @@ class Platforms
     @platforms = @game.add.group
     @platforms.enable_body = true
 
-    @game.physics.enable('ground', Phaser::Physics::ARCADE)
     @platforms.create(400, 400, 'ground')
 
     create_ground
@@ -34,10 +32,12 @@ class Platforms
 
   def create_ground
     ground = @platforms.create(0, @game.world.height - 64, @sprite_key)
+    ground.scale.setTo(2, 2)
   end
 
   def create_ledge(x, y)
     ledge = @platforms.create(x, y, @sprite_key)
+    ledge.scale.setTo(2, 2)
   end
 end
 
