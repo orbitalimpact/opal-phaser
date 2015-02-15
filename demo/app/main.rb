@@ -22,6 +22,9 @@ class Platforms
     @platforms = @game.add.group
     @platforms.enable_body = true
 
+    @game.physics.enable('ground', Phaser::Physics::ARCADE)
+    @platforms.create(400, 400, 'ground')
+
     create_ground
     create_ledge(400, 400)
     create_ledge(-150, 250)
@@ -31,13 +34,10 @@ class Platforms
 
   def create_ground
     ground = @platforms.create(0, @game.world.height - 64, @sprite_key)
-    ground.scale.setTo(2, 2)
-    ground.body.immovable = true
   end
 
   def create_ledge(x, y)
     ledge = @platforms.create(x, y, @sprite_key)
-    ledge.body.immovable = true
   end
 end
 
