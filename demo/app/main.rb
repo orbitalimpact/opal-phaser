@@ -2,6 +2,22 @@ require 'opal'
 require 'opal-phaser'
 require 'pp'
 
+class Sky
+  def initialize(game)
+    @sprite_key = 'sky'
+    @sprite_url = 'assets/sky.png'
+    @game       = game
+  end
+
+  def preload
+    @game.load.image(@sprite_key, @sprite_url)
+  end
+
+  def create
+    @game.add.sprite(0, 0, @sprite_key)
+  end
+end
+
 class Platforms
   attr_accessor :ground_object
   attr_accessor :platforms
@@ -36,14 +52,11 @@ class Platforms
 
   def create_ledge(x, y)
     ledge = @platforms.create(x, y, @sprite_key)
-    ledge.scale.setTo(2, 2)
     ledge.body.immovable = true
   end
 end
 
 class Game
-  attr_accessor :game_debug
-
   def initialize
     run
   end
@@ -51,6 +64,7 @@ class Game
   def run
     preload
     create_game
+
     Phaser::Game.new(800, 674, Phaser::AUTO, '', state)
   end
 
@@ -58,19 +72,26 @@ class Game
 
   def preload
     state.preload do |game|
-      @game_debug = game
-      @platforms = Platforms.new(game)
-      @platforms.preload
+      initialize_entities(game)
+      entities_call :preload
     end
   end
 
   def create_game
     state.create do
-      @platforms.create
+      entities_call :create
     end
   end
 
   def state
     @state ||= Phaser::State.new
+  end
+
+  def initialize_entities(game)
+    @entities ||= [Sky.new(game), Platforms.new(game)]
+  end
+
+  def entities_call(method)
+    @entities.each { |e| e.send(method) }
   end
 end
