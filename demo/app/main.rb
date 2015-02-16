@@ -18,10 +18,8 @@ class Platforms
 
   def create
     @game.physics.startSystem(Phaser::Physics::ARCADE)
-    @platforms = @game.add.group
-    @platforms.enableBody = true
-
-    @platforms.create(400, 400, 'ground')
+    @platforms = Phaser::Group.new(@game)
+    @platforms.enable_body = true
 
     create_ground
     create_ledge(400, 400)

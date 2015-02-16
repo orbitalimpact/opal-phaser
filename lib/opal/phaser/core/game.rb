@@ -1,8 +1,8 @@
 require 'native'
 module Phaser
-  AUTO = %x{ Phaser.AUTO }
-  WEBGL = %x{ Phaser.WEBGL }
-  CANVAS = %x{ Phaser.CANVAS }
+  AUTO   = `Phaser.AUTO`
+  WEBGL  = `Phaser.WEBGL`
+  CANVAS = `Phaser.CANVAS`
 
   class Game
     include Native
@@ -27,7 +27,8 @@ module Phaser
         new Phaser.Game(width, height, renderer, parent, #{state.to_n}, transparent,
                         antialias, physics)
       }
-      @add = GameObjectFactory.new(self)
+
+      @add   = GameObjectFactory.new(self)
       @cache = Cache.new(self)
     end
 
@@ -41,8 +42,5 @@ module Phaser
     alias_native :physics, :physics
     alias_native :debug, :debug
     alias_native :input, :input
-    # alias_native :cache, :cache
-
   end
-
 end
