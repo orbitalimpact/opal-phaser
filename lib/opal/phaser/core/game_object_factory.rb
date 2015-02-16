@@ -6,8 +6,8 @@ module Phaser
       @native = `#@native_game.add`
     end
 
-    def sprite(*args)
-      Sprite.new(@game, *args)
+    def sprite(x, y, key, frame, group = `#@native_game.world`)
+      `group.create(x, y, key, frame)`
     end
 
     def group(*args)
