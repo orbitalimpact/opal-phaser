@@ -2,11 +2,14 @@ module Phaser
   class Sprite
     include Native
     attr_accessor :native
+    attr_accessor :animations
 
     def initialize(game, x, y, key, frame)
-      @native_game = game.to_n
+      @game = game
+      @native_game = @game.to_n
 
-      @native = `new Phaser.Sprite(#@native_game, x, y, key, frame)`
+      @native     = `new Phaser.Sprite(#@native_game, x, y, key, frame)`
+      @animations = AnimationManager.new(@native)
     end
 
     alias_native :anchor, :anchor
@@ -18,9 +21,5 @@ module Phaser
     alias_native :exists=
     alias_native :alive=
     alias_native :z=
-
-    def animations
-      @animations ||= AnimationManager.new(self)
-    end
   end
 end

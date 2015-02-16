@@ -56,6 +56,34 @@ class Platforms
   end
 end
 
+class Player
+  def initialize(game)
+    @game = game
+
+    @sprite_key = 'dude'
+    @sprite_url = 'assets/dude.png'
+
+    @x = 32
+    @y = @game.world.height - 150
+  end
+
+  def preload
+    @game.load.image(@sprite_key, @sprite_url)
+  end
+
+  def create
+    @player = Phaser::Sprite.new(@game, @x, @y, @sprite_key)
+    @game.physics.arcade.enable(@player)
+
+    @player.body.bounce.y = 0.2
+    @player.body.gravity.y = 300
+    @player.body.collideWorldBounds = true
+
+    @player.animations.add('left', [0, 1, 2, 3], 10, 60, true)
+    @player.animations.add('right', [5, 6, 7, 8], 10, 60, true)
+  end
+end
+
 class Game
   def initialize
     run
@@ -65,7 +93,7 @@ class Game
     preload
     create_game
 
-    Phaser::Game.new(800, 674, Phaser::AUTO, '', state)
+    Phaser::Game.new(800, 600, Phaser::AUTO, '', state)
   end
 
   private
@@ -88,7 +116,11 @@ class Game
   end
 
   def initialize_entities(game)
-    @entities ||= [Sky.new(game), Platforms.new(game)]
+    @sky       = Sky.new(game)
+    @platforms = Platforms.new(game)
+    @player    = Player.new(game)
+
+    @entities ||= [@sky, @platforms, @player]
   end
 
   def entities_call(method)

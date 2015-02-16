@@ -7,7 +7,7 @@ module Phaser
   class Game
     include Native
 
-    attr_reader :add
+    attr_reader :add, :world
 
     def initialize(width, height, renderer = Phaser::AUTO,
                   parent = '', state = nil, transparent = false, antialias = true,
