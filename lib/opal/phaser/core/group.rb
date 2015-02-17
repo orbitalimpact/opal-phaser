@@ -11,6 +11,12 @@ module Phaser
     end
 
     alias_native :cursor
+    alias_native :physics_body_type, :physicsBodyType
+    alias_native :enable_body_debug, :enableBodyDebug
+    alias_native :add_child, :addChild
+    alias_native :children
+
+    alias_native :enable_body?, :enableBody
 
     def enable_body=(bool)
       `#@native.enableBody = bool`
@@ -19,17 +25,17 @@ module Phaser
     def create(x, y, key, frame, exists = true)
       child = Sprite.new(@game, x, y, key, frame)
 
-      if `#@native.enableBody`
-        @game.physics.enable(child, `#@native.physicsBodyType`, `#@native.enableBodyDebug`)
+      if enable_body?
+        @game.physics.enable(child, physics_body_type, enable_body_debug)
       end
 
       child.exists  = exists
       child.visible = exists
       child.alive   = exists
 
-      `#@native.addChild(#{child.native})`
+      add_child(child.native)
 
-      child.z = `#@native.children.length`
+      child.z = children.length
 
       if child.events
         `#{child.native}.events.onAddedToGroup$dispatch(#{child}, #@native);`
