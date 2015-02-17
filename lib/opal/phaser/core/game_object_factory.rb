@@ -7,7 +7,7 @@ module Phaser
     end
 
     def sprite(x, y, key, frame, group = `#@native_game.world`)
-      `group.create(x, y, key, frame)`
+      Group.new(@game).wrap_group(group).create(x, y, key, frame)
     end
 
     def group(*args)
