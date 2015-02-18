@@ -11,8 +11,23 @@ module Phaser
 
     class Arcade
     	class Body
+        
+        #attr_accessor :bounce
+        #attr_accessor :gravity
+        
     		def initialize (sprite)
     			@native = `new Phaser.Physics.Arcade.Body(sprite)`
+          # FUTURE NATIVE METHODS AND PROPERTIES FROM THE BODY CLASS
+          #@bounce = `#@native.bounce`
+          #@gravity = `#@native.gravity`
+          #
+          #def collide_world_bounds= (bool)
+          #  if bool == true
+          #    puts "ran true"
+          #  else
+          #    puts "ran false"
+          #  end
+          #end
     		end
     	end
     end
