@@ -19,9 +19,6 @@ class Sky
 end
 
 class Platforms
-  attr_accessor :ground_object
-  attr_accessor :platforms
-
   def initialize(game)
     @sprite_key = 'ground'
     @sprite_url = 'assets/platform.png'
@@ -68,19 +65,20 @@ class Player
   end
 
   def preload
-    @game.load.image(@sprite_key, @sprite_url)
+    @game.load.spritesheet(@sprite_key, @sprite_url)
   end
 
   def create
-    @player = Phaser::Sprite.new(@game, @x, @y, @sprite_key)
+    @player = @game.add.sprite(@x, @y, @sprite_key);
+
     @game.physics.arcade.enable(@player)
 
-    @player.body.bounce.y = 0.2
-    @player.body.gravity.y = 300
-    @player.body.collideWorldBounds = true
+    `#@player.body.bounce.y = 0.2`
+    `#@player.body.gravity.y = 300`
+    `#@player.body.collideWorldBounds = true`
 
-    @player.animations.add('left', [0, 1, 2, 3], 10, 60, true)
-    @player.animations.add('right', [5, 6, 7, 8], 10, 60, true)
+    `#@player.animations.add('left', [0, 1, 2, 3], 10, true)`
+    `#@player.animations.add('right', [5, 6, 7, 8], 10, true)`
   end
 end
 
