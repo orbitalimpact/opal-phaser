@@ -69,7 +69,7 @@ class Player
   end
 
   def create
-    @player = @game.add.sprite(@x, @y, @sprite_key);
+    @player = @game.add.sprite(@x, @y, @sprite_key)
 
     @game.physics.arcade.enable(@player)
 
