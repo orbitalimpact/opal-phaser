@@ -15,7 +15,7 @@ module Phaser
     # @param frame_rate [Integer] [frameRate=60] The speed at which the animation should play. The speed is given in frames per second.
     # @param loop [True, False] [loop=false] Whether or not the animation is looped or just plays once.
     def initialize(game, parent, name, frameData, frames, frameRate = 60, _loop = false)
-      @native_game = game.to_n
+      @native_game = game
       @native = `new Phaser.Animation(#@native_game, parent, name, frameData, frames, frameRate, _loop)`
     end
   end
