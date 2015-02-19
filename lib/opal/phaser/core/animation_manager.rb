@@ -11,7 +11,7 @@ module Phaser
       @game   = `sprite.game`
       @sprite = sprite
 
-      @native = `new Phaser.AnimationManager(#@sprite)`
+      @native = `sprite.animations`
     end
 
     # Adds a new animation under the given key. Optionally set the frames, frame rate and loop.
