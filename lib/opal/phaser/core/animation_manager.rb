@@ -33,6 +33,7 @@ module Phaser
       `#@native._anims[name] = animation`
       `#@native.currentAnim = #@native._anims[name]`
       `#@native.currentFrame = #@native.currentAnim.currentFrame`
+      `console.log(animation.currentFrame)`
 
       `#@native._anims[name]`
     end
