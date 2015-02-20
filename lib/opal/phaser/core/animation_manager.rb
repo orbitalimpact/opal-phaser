@@ -28,7 +28,7 @@ module Phaser
       `#@native._outputFrames.length = 0`
       `#@native._frameData.getFrameIndexes(frames, use_numeric_index, #@native._outputFrames)`
 
-      animation = Animation.new(@game, @sprite, name, `#@native._frameData`, `#@native._outputFrames`, frame_rate, _loop)
+      animation = Animation.new(@game, @sprite, name, `#@native._frameData`, `#@native._outputFrames`, frame_rate, _loop).native
 
       `#@native._anims[name] = animation`
       `#@native.currentAnim = #@native._anims[name]`

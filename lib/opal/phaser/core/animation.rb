@@ -6,6 +6,7 @@ module Phaser
   # @see http://docs.phaser.io/Phaser.Animation.html
   class Animation
     include Native
+    attr_accessor :native
 
     # @param game [Phaser.Game] A reference to the currently running game.
     # @param parent [Phaser.Sprite] A reference to the owner of this Animation.
