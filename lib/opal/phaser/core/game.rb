@@ -1,4 +1,3 @@
-require 'native'
 module Phaser
   AUTO   = `Phaser.AUTO`
   WEBGL  = `Phaser.WEBGL`
@@ -6,8 +5,6 @@ module Phaser
 
   class Game
     include Native
-
-    attr_reader :add, :world
 
     def initialize(width, height, renderer = Phaser::AUTO,
                   parent = '', state = nil, transparent = false, antialias = true,
@@ -27,14 +24,10 @@ module Phaser
         new Phaser.Game(width, height, renderer, parent, #{state.to_n}, transparent,
                         antialias, physics)
       }
-
-      @add   = GameObjectFactory.new(self)
-      @cache = Cache.new(self)
     end
 
-    def to_n
-      @native
-    end
+    alias_native :cache, :cache, as: Cache
+    alias_native :add,   :add,   as: GameObjectFactory
 
     alias_native :load, :load
     alias_native :world, :world

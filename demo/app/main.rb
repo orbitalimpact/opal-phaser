@@ -31,7 +31,7 @@ class Platforms
 
   def create
     @game.physics.startSystem(Phaser::Physics::ARCADE)
-    @platforms = Phaser::Group.new(@game)
+    @platforms = @game.add.group
     @platforms.enable_body = true
 
     create_ground
