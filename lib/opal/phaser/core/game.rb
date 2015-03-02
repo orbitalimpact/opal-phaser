@@ -29,11 +29,13 @@ module Phaser
     alias_native :cache, :cache, as: Cache
     alias_native :add,   :add,   as: GameObjectFactory
 
-    alias_native :load, :load
-    alias_native :world, :world
-    alias_native :stage, :stage
-    alias_native :physics, :physics
-    alias_native :debug, :debug
-    alias_native :input, :input
+    alias_native :load
+    alias_native :world
+    alias_native :stage
+    alias_native :physics
+    alias_native :debug
+    alias_native :input
+    alias_native :width
+    alias_native :time
   end
 end
