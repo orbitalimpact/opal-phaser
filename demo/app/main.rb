@@ -65,7 +65,7 @@ class Player
   end
 
   def preload
-    @game.load.spritesheet(@sprite_key, @sprite_url)
+    @game.load.spritesheet(@sprite_key, @sprite_url, 32, 48)
   end
 
   def create
