@@ -6,9 +6,16 @@ module Phaser
   class Game
     include Native
 
-    def initialize(width, height, renderer = Phaser::AUTO,
-                  parent = '', state = nil, transparent = false, antialias = true,
-                  physics = nil, &block)
+    def initialize(arg_hash = {}, &block)
+
+      width       = arg_hash[:width]
+      height      = arg_hash[:height]
+      renderer    = arg_hash[:renderer]
+      parent      = arg_hash[:parent]
+      state       = arg_hash[:state]
+      transparent = arg_hash[:transparent]
+      antialias   = arg_hash[:antialias]
+      physics     = arg_hash[:physics]
 
       if state
         state.game = self

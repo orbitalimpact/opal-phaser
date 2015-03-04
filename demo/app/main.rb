@@ -91,7 +91,7 @@ class Game
     preload
     create_game
 
-    Phaser::Game.new(800, 600, Phaser::AUTO, '', state)
+    Phaser::Game.new(width: 800, height: 600, renderer: Phaser::AUTO, parent: '', state: state, transparent: false, antialias: true, physics: nil)
   end
 
   private
