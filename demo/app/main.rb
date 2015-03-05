@@ -30,7 +30,7 @@ class Platforms
   end
 
   def create
-    @game.physics.startSystem(Phaser::Physics::ARCADE)
+    @game.physics.start_system(Phaser::Physics::ARCADE)
     @platforms = @game.add.group
     @platforms.enable_body = true
 
@@ -90,6 +90,7 @@ class Game
   def run
     preload
     create_game
+    update_game
 
     Phaser::Game.new(width: 800, height: 600, renderer: Phaser::AUTO, parent: '', state: state, transparent: false, antialias: true, physics: nil)
   end
@@ -106,6 +107,12 @@ class Game
   def create_game
     state.create do
       entities_call :create
+    end
+  end
+  
+  def update_game
+    state.update do |game|
+      game.physics.arcade.collide(@player, @platforms)
     end
   end
 
