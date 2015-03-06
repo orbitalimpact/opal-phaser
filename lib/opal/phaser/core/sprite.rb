@@ -11,6 +11,8 @@ module Phaser
     alias_native :visible=
     alias_native :exists=
     alias_native :alive=
+    alias_native :frame=
+
     alias_native :z
     alias_native :z=
     alias_native :x

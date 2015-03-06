@@ -84,6 +84,31 @@ class Player
     @player.animations.add('left', [0, 1, 2, 3], 10, true)
     @player.animations.add('right', [5, 6, 7, 8], 10, true)
   end
+
+  def update
+    cursors = @game.input.keyboard.createCursorKeys
+    movement(cursors)
+  end
+
+  def movement(cursors)
+    @player.body.velocity.x = 0
+
+    case
+    when cursors.left.isDown
+      @player.body.velocity.x = -150
+      player.animations.play('left')
+    when cursors.right.isDown
+      player.body.velocity.x = 150
+      player.animations.play('right')
+    else
+      player.animations.stop
+      player.frame = 4
+    end
+
+    if cursors.up.isDown && player.body.touching.down
+      player.body.velocity.y = -350
+    end
+  end
 end
 
 class Game
@@ -117,6 +142,7 @@ class Game
   def update_game
     state.update do |game|
       game.physics.arcade.collide(@player.player, @platforms.platforms)
+      @player.update
     end
   end
 
