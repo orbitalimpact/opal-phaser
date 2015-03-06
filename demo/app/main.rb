@@ -2,6 +2,31 @@ require 'opal'
 require 'opal-phaser'
 require 'pp'
 
+class Star
+  attr_accessor :stars
+
+  def initialize(game)
+    @sprite_key = 'star'
+    @sprite_url = 'assets/star.png'
+    @game       = game
+  end
+
+  def preload
+    @game.load.image(@sprite_key, @sprite_url)
+  end
+
+  def create
+    @stars = @game.add.group
+    stars.enable_body = true
+
+    12.times do |n|
+      star = stars.create(n * 70, 0, 'star')
+      star.body.gravity.y = 6
+      star.body.bounce.y = 0.7 + rand * 0.2
+    end
+  end
+end
+
 class Sky
   def initialize(game)
     @sprite_key = 'sky'
@@ -77,12 +102,12 @@ class Player
 
     @game.physics.arcade.enable(@player)
 
-    @player.body.bounce.y = 0.2
-    @player.body.gravity.y = 300
-    @player.body.collideWorldBounds = true
+    player.body.bounce.y = 0.2
+    player.body.gravity.y = 300
+    player.body.collideWorldBounds = true
 
-    @player.animations.add('left', [0, 1, 2, 3], 10, true)
-    @player.animations.add('right', [5, 6, 7, 8], 10, true)
+    player.animations.add('left', [0, 1, 2, 3], 10, true)
+    player.animations.add('right', [5, 6, 7, 8], 10, true)
   end
 
   def update
@@ -91,11 +116,11 @@ class Player
   end
 
   def movement(cursors)
-    @player.body.velocity.x = 0
+    player.body.velocity.x = 0
 
     case
     when cursors.left.isDown
-      @player.body.velocity.x = -150
+      player.body.velocity.x = -150
       player.animations.play('left')
     when cursors.right.isDown
       player.body.velocity.x = 150
@@ -140,8 +165,15 @@ class Game
   end
 
   def update_game
+    collect_star = proc do |player, star|
+      star.kill
+    end
+
     state.update do |game|
       game.physics.arcade.collide(@player.player, @platforms.platforms)
+      game.physics.arcade.collide(@star.stars, @platforms.platforms)
+      game.physics.arcade.overlap(@player.player, @star.stars, collect_star)
+
       @player.update
     end
   end
@@ -154,8 +186,9 @@ class Game
     @sky       = Sky.new(game)
     @platforms = Platforms.new(game)
     @player    = Player.new(game)
+    @star      = Star.new(game)
 
-    @entities ||= [@sky, @platforms, @player]
+    @entities ||= [@sky, @platforms, @player, @star]
   end
 
   def entities_call(method)
