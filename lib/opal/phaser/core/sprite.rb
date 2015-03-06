@@ -7,6 +7,8 @@ module Phaser
     alias_native :scale
     alias_native :body
     alias_native :bounce
+    
+    alias_native :kill
 
     alias_native :visible=
     alias_native :exists=
