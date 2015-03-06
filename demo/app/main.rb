@@ -19,6 +19,8 @@ class Sky
 end
 
 class Platforms
+  attr_accessor :platforms
+
   def initialize(game)
     @sprite_key = 'ground'
     @sprite_url = 'assets/platform.png'
@@ -54,6 +56,8 @@ class Platforms
 end
 
 class Player
+  attr_accessor :player
+
   def initialize(game)
     @game = game
 
@@ -109,10 +113,10 @@ class Game
       entities_call :create
     end
   end
-  
+
   def update_game
     state.update do |game|
-      game.physics.arcade.collide(@player, @platforms)
+      game.physics.arcade.collide(@player.player, @platforms.platforms)
     end
   end
 
