@@ -2,6 +2,24 @@ require 'opal'
 require 'opal-phaser'
 require 'pp'
 
+class Score
+  attr_accessor :score
+  attr_reader   :scoreText
+  
+  def initialize(game)
+    @game = game
+  end
+  
+  def preload
+    # nothing for this class
+  end
+  
+  def create
+    @score = 0
+    @scoreText = @game.add.text(16, 16, 'score: 0', {fontSize: '32px', fill: '#000'})
+  end
+end
+
 class Star
   attr_accessor :stars
 
@@ -167,6 +185,10 @@ class Game
   def update_game
     collect_star = proc do |player, star, score|
       `star.kill()`
+      
+      @score.score += 10
+      pp @score.score
+      @score.scoreText.text = 'score: #{@score.score}'
     end
 
     state.update do |game|
@@ -187,8 +209,9 @@ class Game
     @platforms = Platforms.new(game)
     @player    = Player.new(game)
     @star      = Star.new(game)
+    @score     = Score.new(game)
 
-    @entities ||= [@sky, @platforms, @player, @star]
+    @entities ||= [@sky, @platforms, @player, @star, @score]
   end
 
   def entities_call(method)
