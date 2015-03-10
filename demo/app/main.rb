@@ -11,7 +11,7 @@ class Score
   end
   
   def preload
-    # nothing for this class
+    # nothing in here for this class
   end
   
   def create
