@@ -165,8 +165,8 @@ class Game
   end
 
   def update_game
-    collect_star = proc do |player, star|
-      star.kill
+    collect_star = proc do |player, star, score|
+      `star.kill()`
     end
 
     state.update do |game|
