@@ -2,6 +2,8 @@ module Phaser
   class Text
     include Native
     
-    alias_native :text
+    def text=(text)
+      `#@native.text = text`
+    end
   end
 end

@@ -187,8 +187,7 @@ class Game
       `star.kill()`
       
       @score.score += 10
-      pp @score.score
-      @score.scoreText.text = 'score: #{@score.score}'
+      @score.scoreText.text = "score: #{@score.score}"
     end
 
     state.update do |game|
