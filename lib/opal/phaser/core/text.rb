@@ -1,7 +1,9 @@
 module Phaser
   class Text
-    def initialize (game, x, y, text, style)
-      `new Phaser.Text(#{game.to_n}, x, y, text, style)`
+    include Native
+    
+    def text=(text)
+      `#@native.text = text`
     end
   end
 end

@@ -1,21 +1,19 @@
 module Phaser
   class Physics
-  	def initialize (game)
-  		`new Phaser.Physics(game)`
-  	end
-
-  	def start_system
-  		`Phaser.Physics.startSystem`
-  	end
-
-    ARCADE = `Phaser.Physics.ARCADE`
+    include Native
 
     class Arcade
     	class Body
-    		def initialize (sprite)
-    			@native = `new Phaser.Physics.Arcade.Body(sprite)`
-    		end
     	end
     end
+
+    ARCADE = `Phaser.Physics.ARCADE`
+    P2JS   = `Phaser.Physics.P2JS`
+    NINJA  = `Phaser.Physics.NINJA`
+    BOX2D  = `Phaser.Physics.BOX2D`
+
+    alias_native :start_system, :startSystem
+    alias_native :arcade
+
   end
 end

@@ -1,17 +1,21 @@
-require 'native'
 module Phaser
-  AUTO = %x{ Phaser.AUTO }
-  WEBGL = %x{ Phaser.WEBGL }
-  CANVAS = %x{ Phaser.CANVAS }
+  AUTO   = `Phaser.AUTO`
+  WEBGL  = `Phaser.WEBGL`
+  CANVAS = `Phaser.CANVAS`
 
   class Game
     include Native
 
-    attr_reader :add
+    def initialize(arg_hash = {}, &block)
 
-    def initialize(width, height, renderer = Phaser::AUTO,
-                  parent = '', state = nil, transparent = false, antialias = true,
-                  physics = nil, &block)
+      width       = arg_hash[:width]
+      height      = arg_hash[:height]
+      renderer    = arg_hash[:renderer]
+      parent      = arg_hash[:parent]
+      state       = arg_hash[:state]
+      transparent = arg_hash[:transparent]
+      antialias   = arg_hash[:antialias]
+      physics     = arg_hash[:physics]
 
       if state
         state.game = self
@@ -27,22 +31,18 @@ module Phaser
         new Phaser.Game(width, height, renderer, parent, #{state.to_n}, transparent,
                         antialias, physics)
       }
-      @add = GameObjectFactory.new(self)
-      @cache = Cache.new(self)
     end
 
-    def to_n
-      @native
-    end
+    alias_native :cache, :cache, as: Cache
+    alias_native :add,   :add,   as: GameObjectFactory
 
-    alias_native :load, :load
-    alias_native :world, :world
-    alias_native :stage, :stage
-    alias_native :physics, :physics
-    alias_native :debug, :debug
-    alias_native :input, :input
-    # alias_native :cache, :cache
-
+    alias_native :load
+    alias_native :world
+    alias_native :stage
+    alias_native :physics, :physics, as: Physics
+    alias_native :debug
+    alias_native :input
+    alias_native :width
+    alias_native :time
   end
-
 end

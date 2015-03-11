@@ -1,19 +1,18 @@
 module Phaser
   class Group
-    include ::Native
-    def initialize(game, parent, name, addToStage, enableBody, physicsBodyType)
-      @game = game
-      @native_game = game.to_n
-      _native = `new Phaser.Group(#{@native_game}, parent, name, addToStage, enableBody, physicsBodyType)`
-      super(_native)
-    end
+    include Native
 
-    alias_native :body, :body
-    alias_native :enable_body=, :enableBody
-    alias_native :enable_body, :enableBody
+    alias_native :cursor
+    alias_native :physics_body_type, :physicsBodyType
+    alias_native :enable_body_debug, :enableBodyDebug
+    alias_native :add_child, :addChild
+    alias_native :children
+    alias_native :create
 
-    def create (*args)
-      Sprite.new(@game, *args)
+    alias_native :enable_body?, :enableBody
+
+    def enable_body=(bool)
+      `#@native.enableBody = bool`
     end
   end
 end

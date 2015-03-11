@@ -1,27 +1,28 @@
 module Phaser
   class Sprite
-    def initialize(game, x, y, key, frame)
-      @game = game.to_n
-      @native = `new Phaser.Sprite(#{@game}, x, y, key, frame)`
-    end
+    include Native
 
-    alias_native :anchor,        :anchor
-    alias_native :events,        :events
+    alias_native :anchor
+    alias_native :events
+    alias_native :scale
+    alias_native :body
+    alias_native :bounce
     
-    def body
-      Physics::Arcade::Body.new(self)
-    end
-    
-    def input_enable=
-      Native(`#@native.inputEnabled`)
-    end
-    
-    def scale
-      Native(`#@native.scale`)
-    end
-    
-    def animations
-      @animations ||= AnimationManager.new(self)
-    end
+    alias_native :kill
+
+    alias_native :visible=
+    alias_native :exists=
+    alias_native :alive=
+    alias_native :frame=
+
+    alias_native :z
+    alias_native :z=
+    alias_native :x
+    alias_native :x=
+    alias_native :y
+    alias_native :y=
+    alias_native :width
+
+    alias_native :animations, :animations, as: AnimationManager
   end
 end

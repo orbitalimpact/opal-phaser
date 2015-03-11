@@ -1,11 +1,9 @@
 module Phaser
   class AnimationManager
-    def initialize(sprite)
-      `new Phaser.AnimationManager`
-    end
+    include Native
 
-    def add
-      Animation.new
-    end
+    alias_native :add
+    alias_native :stop
+    alias_native :play
   end
 end

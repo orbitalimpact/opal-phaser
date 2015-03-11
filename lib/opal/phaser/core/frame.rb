@@ -1,5 +1,5 @@
 module Phaser
-  class Cache
+  class Frame
     include Native
   end
 end

@@ -3,7 +3,7 @@ module Phaser
     attr_writer :game
     def initialize(game = nil, &block)
       @game    = game
-      @native  = %x{ new Phaser.State() }
+      @native  = `new Phaser.State`
 
       @preload = proc {}
       @create  = proc {}
