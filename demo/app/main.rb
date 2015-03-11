@@ -5,15 +5,15 @@ require 'pp'
 class Score
   attr_accessor :score
   attr_reader   :scoreText
-  
+
   def initialize(game)
     @game = game
   end
-  
+
   def preload
     # nothing in here for this class
   end
-  
+
   def create
     @score = 0
     @scoreText = @game.add.text(16, 16, 'score: 0', {fontSize: '32px', fill: '#000'})
@@ -184,8 +184,9 @@ class Game
 
   def update_game
     collect_star = proc do |player, star, score|
-      `star.kill()`
-      
+      star = Phaser::Sprite.new(star)
+      star.kill
+
       @score.score += 10
       @score.scoreText.text = "score: #{@score.score}"
     end
