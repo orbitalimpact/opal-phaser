@@ -1,6 +1,5 @@
 require 'opal'
 require 'opal-phaser'
-require 'pp'
 
 class Score
   attr_accessor :score
