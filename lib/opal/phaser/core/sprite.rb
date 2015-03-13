@@ -22,6 +22,10 @@ module Phaser
     alias_native :y
     alias_native :y=
     alias_native :width
+    
+    def input_enabled=(bool)
+      `#@native.inputEnabled = bool`
+    end
 
     alias_native :animations, :animations, as: AnimationManager
   end
