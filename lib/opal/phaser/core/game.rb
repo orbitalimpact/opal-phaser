@@ -37,7 +37,7 @@ module Phaser
     alias_native :add,   :add,   as: GameObjectFactory
 
     alias_native :load
-    alias_native :world
+    alias_native :world, :world, as: World
     alias_native :stage
     alias_native :physics, :physics, as: Physics
     alias_native :debug
