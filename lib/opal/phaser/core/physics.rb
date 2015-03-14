@@ -3,6 +3,11 @@ module Phaser
     include Native
 
     class Arcade
+      include Native
+      
+      alias_native :enable
+      alias_native :collide
+      alias_native :overlap
     	class Body
     	end
     end
@@ -13,7 +18,7 @@ module Phaser
     BOX2D  = `Phaser.Physics.BOX2D`
 
     alias_native :start_system, :startSystem
-    alias_native :arcade
+    alias_native :arcade, :arcade, as: Arcade
 
   end
 end
