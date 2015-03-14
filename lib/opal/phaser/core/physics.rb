@@ -8,6 +8,9 @@ module Phaser
       alias_native :enable
       alias_native :collide
       alias_native :overlap
+      alias_native :distance_to_pointer, :distanceToPointer
+      alias_native :move_to_pointer,     :moveToPointer
+      
     	class Body
     	end
     end
