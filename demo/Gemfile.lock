@@ -1,7 +1,7 @@
 PATH
   remote: ..
   specs:
-    opal-phaser (0.0.4)
+    opal-phaser (0.1.1)
       opal (~> 0.6.0)
 
 GEM
@@ -9,7 +9,7 @@ GEM
   specs:
     hike (1.2.3)
     json (1.8.2)
-    multi_json (1.10.1)
+    multi_json (1.11.0)
     opal (0.6.3)
       source_map
       sprockets
