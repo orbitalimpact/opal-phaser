@@ -2,12 +2,11 @@ module Phaser
   class Sprite
     include Native
 
-    alias_native :anchor
     alias_native :events
     alias_native :scale
     alias_native :body
     alias_native :bounce
-    
+
     alias_native :kill
 
     alias_native :visible=
@@ -22,11 +21,12 @@ module Phaser
     alias_native :y
     alias_native :y=
     alias_native :width
-    
+
     def input_enabled=(bool)
       `#@native.inputEnabled = bool`
     end
 
+    alias_native :anchor,     :anchor,     as: Anchor
     alias_native :animations, :animations, as: AnimationManager
   end
 end
