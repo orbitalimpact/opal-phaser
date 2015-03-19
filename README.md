@@ -11,6 +11,8 @@ If you have not heard of Phaser, check out these links:
 * Phaser: https://github.com/photonstorm/phaser
 * Phaser Examples: https://github.com/photonstorm/phaser-examples
 
+Also, to get examples of opal-phaser in action, check out the [opal-phaser-examples repo](https://github.com/orbitalimpact/opal-phaser-examples).
+
 ## Cloning this repository
 
 ```
