@@ -1,4 +1,8 @@
 module Phaser
-  class Tween < `Phaser.Tween`
+  class Tween
+    include Native
+    
+    alias_native :to
+    alias_native :start
   end
 end
