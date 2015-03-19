@@ -23,6 +23,7 @@ module Phaser
 
     alias_native :start_system, :startSystem
     alias_native :arcade, :arcade, as: Arcade
+    alias_native :enable
 
   end
 end
