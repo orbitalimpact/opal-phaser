@@ -1,7 +1,7 @@
 PATH
   remote: ..
   specs:
-    opal-phaser (0.1.1)
+    opal-phaser (0.1.2)
       opal (~> 0.6.0)
 
 GEM
