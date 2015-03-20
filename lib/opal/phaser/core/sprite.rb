@@ -29,6 +29,10 @@ module Phaser
     def smoothed=(bool)
       `#@native.smoothed = bool`
     end
+    
+    def frame_name=(name)
+      `#@native.frameName = name`
+    end
 
     alias_native :anchor,     :anchor,     as: Anchor
     alias_native :animations, :animations, as: AnimationManager
