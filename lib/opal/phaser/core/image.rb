@@ -1,10 +1,16 @@
 module Phaser
   class Image
-    def initialize (game, x, y, key)
-      @game = game.to_n
-      @native = `new Phaser.Image(#{@game}, x, y, key)`
+    include Native
+    
+    alias_native :x
+    alias_native :y
+    alias_native :x=
+    alias_native :y=
+    
+    alias_native :scale
+    
+    def smoothed=(bool)
+      `#@native.smoothed = bool`
     end
-
-    alias_native :scale, :scale
   end
 end
