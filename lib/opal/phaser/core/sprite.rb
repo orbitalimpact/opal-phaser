@@ -25,6 +25,10 @@ module Phaser
     def input_enabled=(bool)
       `#@native.inputEnabled = bool`
     end
+    
+    def smoothed=(bool)
+      `#@native.smoothed = bool`
+    end
 
     alias_native :anchor,     :anchor,     as: Anchor
     alias_native :animations, :animations, as: AnimationManager
