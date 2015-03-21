@@ -33,6 +33,8 @@ module Phaser
     def frame_name=(name)
       `#@native.frameName = name`
     end
+    
+    alias_native :load_texture, :loadTexture
 
     alias_native :anchor,     :anchor,     as: Anchor
     alias_native :animations, :animations, as: AnimationManager
