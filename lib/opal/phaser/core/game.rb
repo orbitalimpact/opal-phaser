@@ -41,7 +41,7 @@ module Phaser
     alias_native :stage
     alias_native :physics, :physics, as: Physics
     alias_native :debug
-    alias_native :input
+    alias_native :input, :input, as: Input
     alias_native :width
     alias_native :time
   end
