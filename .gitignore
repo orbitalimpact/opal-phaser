@@ -1,3 +1,4 @@
 prepros.cfg
 Gemfile.lock
 /demo/Gemfile.lock
+.idea
