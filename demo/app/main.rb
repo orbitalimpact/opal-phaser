@@ -128,7 +128,7 @@ class Player
   end
 
   def update
-    cursors = @game.input.keyboard.createCursorKeys
+    cursors = @game.input.keyboard.create_cursor_keys
     movement(cursors)
   end
 
