@@ -2,7 +2,6 @@ module Phaser
   class Sprite
     include Native
 
-    alias_native :events, :events, as: Events
     alias_native :scale
     alias_native :body
     alias_native :bounce
@@ -38,5 +37,6 @@ module Phaser
 
     alias_native :anchor,     :anchor,     as: Anchor
     alias_native :animations, :animations, as: AnimationManager
+    alias_native :events, :events, as: Events
   end
 end
