@@ -1,4 +1,11 @@
-prepros.cfg
-Gemfile.lock
-/demo/Gemfile.lock
+*Gemfile.lock
+
+## Documentation cache and generated files:
+/.yardoc/
+/_yardoc/
+/doc/
+/rdoc/
+
+## Ignore editors, tools and such:
 .idea
+prepros.cfg
