@@ -14,6 +14,8 @@ require 'opal/phaser/animation/frame'
 
 require 'opal/phaser/tween/tween'
 
+require 'opal/phaser/physics/physics'
+
 require 'opal/phaser/game_objects/events'
 require 'opal/phaser/game_objects/sprite'
 require 'opal/phaser/game_objects/text'
@@ -24,8 +26,6 @@ require 'opal/phaser/input/keyboard'
 require 'opal/phaser/input/input'
 
 require 'opal/phaser/loader/cache'
-
-require 'opal/phaser/physics/physics'
 
 
 require 'opal/phaser/core/game'

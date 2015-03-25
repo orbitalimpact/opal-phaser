@@ -3,7 +3,6 @@ module Phaser
     include Native
 
     alias_native :scale
-    alias_native :body
     alias_native :bounce
 
     alias_native :kill
@@ -35,8 +34,9 @@ module Phaser
     
     alias_native :load_texture, :loadTexture
 
+    alias_native :body,       :body,       as: Physics::Arcade::Body
     alias_native :anchor,     :anchor,     as: Anchor
     alias_native :animations, :animations, as: AnimationManager
-    alias_native :events, :events, as: Events
+    alias_native :events,     :events,     as: Events
   end
 end

@@ -13,6 +13,16 @@ module Phaser
       alias_native :check_collision,     :checkCollision
 
     	class Body
+        include Native
+        
+        alias_native :gravity
+        alias_native :velocity
+        alias_native :bounce
+        alias_native :touching
+        
+        def collide_world_bounds=(bool)
+          `#@native.collideWorldBounds = bool`
+        end
     	end
     end
 
