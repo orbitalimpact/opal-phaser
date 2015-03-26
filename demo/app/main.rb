@@ -121,7 +121,7 @@ class Player
 
     player.body.bounce.y = 0.2
     player.body.gravity.y = 300
-    player.body.collideWorldBounds = true
+    player.body.collide_world_bounds = true
 
     player.animations.add('left', [0, 1, 2, 3], 10, true)
     player.animations.add('right', [5, 6, 7, 8], 10, true)
