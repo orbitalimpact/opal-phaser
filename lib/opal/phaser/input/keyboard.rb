@@ -3,6 +3,10 @@ module Phaser
     include Native
     
     SPACEBAR = `Phaser.Keyboard.SPACEBAR`
+    LEFT     = `Phaser.Keyboard.LEFT`
+    RIGHT    = `Phaser.Keyboard.RIGHT`
+    A        = `Phaser.Keyboard.A`
+    D        = `Phaser.Keyboard.D`
     
     alias_native :create_cursor_keys, :createCursorKeys
     
