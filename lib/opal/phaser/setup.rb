@@ -9,6 +9,7 @@ require 'opal/phaser/physics/files'
 require 'opal/phaser/game_objects/files'
 require 'opal/phaser/input/files'
 require 'opal/phaser/loader/files'
+require 'opal/phaser/time/files'
 
 # TODO: This is odd here as it doesn't fit the files.rb require pattern... how can we clean this up?
 require 'opal/phaser/core/game'
