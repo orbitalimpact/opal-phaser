@@ -39,6 +39,7 @@ module Phaser
     alias_native :physics, :physics, as: Physics
     alias_native :input,   :input,   as: Input
     alias_native :time,    :time,    as: Time
+    alias_native :rnd,     :rnd,     as: RandomDataGenerator
 
     alias_native :load
     alias_native :stage
