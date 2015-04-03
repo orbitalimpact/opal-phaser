@@ -6,6 +6,7 @@ module Phaser
     alias_native :physics_body_type, :physicsBodyType
     alias_native :enable_body_debug, :enableBodyDebug
     alias_native :add_child, :addChild
+    alias_native :set_all,   :setAll
     alias_native :children
     alias_native :create
 
