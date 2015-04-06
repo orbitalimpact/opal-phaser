@@ -4,6 +4,9 @@ module Phaser
     
     alias_native :events, :events, as: Timer
     alias_native :fps
-    alias_native :advancedTiming
+    
+    def advanced_timing=(bool)
+      `#@native.advancedTiming = bool`
+    end
   end
 end
