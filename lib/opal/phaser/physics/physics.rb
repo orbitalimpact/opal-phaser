@@ -24,6 +24,10 @@ module Phaser
         def collide_world_bounds=(bool)
           `#@native.collideWorldBounds = bool`
         end
+        
+        def immovable=(bool)
+          `#@native.immovable = bool`
+        end
     	end
     end
 
