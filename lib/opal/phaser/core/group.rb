@@ -7,8 +7,11 @@ module Phaser
     alias_native :enable_body_debug, :enableBodyDebug
     alias_native :add_child, :addChild
     alias_native :set_all,   :setAll
+    alias_native :for_each,  :forEach
     alias_native :children
     alias_native :create
+    alias_native :remove
+    alias_native :total
 
     alias_native :enable_body?, :enableBody
 
