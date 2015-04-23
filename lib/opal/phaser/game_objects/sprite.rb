@@ -2,6 +2,7 @@ module Phaser
   class Sprite
     include Native
 
+    alias_native :key
     alias_native :scale
     alias_native :bounce
 
