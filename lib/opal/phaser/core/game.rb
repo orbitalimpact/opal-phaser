@@ -42,6 +42,7 @@ module Phaser
     alias_native :time,    :time,    as: Time
     alias_native :rnd,     :rnd,     as: RandomDataGenerator
 
+    alias_native :make
     alias_native :load
     alias_native :debug
     alias_native :width
