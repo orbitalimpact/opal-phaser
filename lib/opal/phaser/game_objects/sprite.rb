@@ -6,6 +6,7 @@ module Phaser
     alias_native :bounce
 
     alias_native :kill
+    alias_native :play
 
     alias_native :visible=
     alias_native :exists=
