@@ -8,6 +8,7 @@ module Phaser
     alias_native :y=
     
     alias_native :scale
+    alias_native :destroy
     
     def smoothed=(bool)
       `#@native.smoothed = bool`
