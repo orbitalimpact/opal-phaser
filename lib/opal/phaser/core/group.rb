@@ -10,6 +10,7 @@ module Phaser
     alias_native :call_all,  :callAll
     alias_native :children
     alias_native :create
+    alias_native :destroy
     alias_native :remove
     alias_native :total
 
