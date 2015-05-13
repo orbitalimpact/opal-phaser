@@ -1,3 +1,4 @@
+require 'opal/phaser/animation/animation'
 module Phaser
   class AnimationManager
     include Native

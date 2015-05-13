@@ -1,3 +1,8 @@
+require 'opal/phaser/physics/physics'
+require 'opal/phaser/core/anchor'
+require 'opal/phaser/animation/animation_manager'
+require 'opal/phaser/game_objects/events'
+
 module Phaser
   class Sprite
     include Native
@@ -26,15 +31,15 @@ module Phaser
     def input_enabled=(bool)
       `#@native.inputEnabled = bool`
     end
-    
+
     def smoothed=(bool)
       `#@native.smoothed = bool`
     end
-    
+
     def frame_name=(name)
       `#@native.frameName = name`
     end
-    
+
     alias_native :load_texture, :loadTexture
 
     alias_native :body,       :body,       as: Physics::Arcade::Body

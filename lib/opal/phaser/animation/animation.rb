@@ -1,3 +1,4 @@
+require 'opal/phaser/core/signal'
 module Phaser
   class Animation
     include Native

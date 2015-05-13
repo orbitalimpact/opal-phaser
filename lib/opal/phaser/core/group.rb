@@ -1,3 +1,4 @@
+require 'opal/phaser/game_objects/sprite'
 module Phaser
   class Group
     include Native
@@ -9,7 +10,8 @@ module Phaser
     alias_native :set_all,   :setAll
     alias_native :call_all,  :callAll
     alias_native :children
-    alias_native :create
+    # alias_native :create
+    alias_native :create, :create, as: Sprite
     alias_native :destroy
     alias_native :remove
     alias_native :total
