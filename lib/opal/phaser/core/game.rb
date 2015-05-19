@@ -46,5 +46,6 @@ module Phaser
     alias_native :load
     alias_native :debug
     alias_native :width
+    alias_native :stage
   end
 end
