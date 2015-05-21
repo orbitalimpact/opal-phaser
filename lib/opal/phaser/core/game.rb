@@ -1,3 +1,4 @@
+require 'opal/phaser/core/camera'
 module Phaser
   AUTO   = `Phaser.AUTO`
   WEBGL  = `Phaser.WEBGL`
@@ -41,6 +42,7 @@ module Phaser
     alias_native :input,   :input,   as: Input
     alias_native :time,    :time,    as: Time
     alias_native :rnd,     :rnd,     as: RandomDataGenerator
+    alias_native :camera,  :camera,  as: Camera
 
     alias_native :make
     alias_native :load
