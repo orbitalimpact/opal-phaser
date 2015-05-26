@@ -10,6 +10,8 @@ module Phaser
 
     alias_native :scale
     alias_native :destroy
+    
+    alias_native :load_texture, :loadTexture
 
     def smoothed=(bool)
       `#@native.smoothed = bool`
