@@ -7,6 +7,7 @@ module Phaser
     RIGHT    = `Phaser.Keyboard.RIGHT`
     A        = `Phaser.Keyboard.A`
     D        = `Phaser.Keyboard.D`
+    ESC      = `Phaser.Keyboard.ESC`
     
     alias_native :create_cursor_keys, :createCursorKeys
     alias_native :remove_key, :removeKey
