@@ -9,14 +9,14 @@ module Phaser
 
     def initialize(arg_hash = {}, &block)
 
-      width       = arg_hash[:width]
-      height      = arg_hash[:height]
-      renderer    = arg_hash[:renderer]
-      parent      = arg_hash[:parent]
-      state       = arg_hash[:state]
-      transparent = arg_hash[:transparent]
-      antialias   = arg_hash[:antialias]
-      physics     = arg_hash[:physics]
+      width       = arg_hash.fetch(:width) { 800 }
+      height      = arg_hash.fetch(:height) { 600 }
+      renderer    = arg_hash.fetch(:renderer) { Phaser::AUTO }
+      parent      = arg_hash.fetch(:parent) { "" }
+      state       = arg_hash.fetch(:state) { Phaser::NilState }
+      transparent = arg_hash.fetch(:transparent) { false }
+      antialias   = arg_hash.fetch(:antialias) { true }
+      physics     = arg_hash.fetch(:physics) { nil }
 
       if state
         state.game = self
