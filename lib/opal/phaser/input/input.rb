@@ -1,3 +1,4 @@
+require 'opal/phaser/input/keyboard'
 require 'opal/phaser/input/pointer'
 module Phaser
   class Input

@@ -1,4 +1,12 @@
+require 'opal/phaser/loader/cache'
+require 'opal/phaser/game_objects/game_object_factory'
+require 'opal/phaser/core/world'
+require 'opal/phaser/core/stage'
+require 'opal/phaser/core/state_manager'
+require 'opal/phaser/input/input'
+require 'opal/phaser/math/random_data_generator'
 require 'opal/phaser/core/camera'
+
 module Phaser
   AUTO   = `Phaser.AUTO`
   WEBGL  = `Phaser.WEBGL`
