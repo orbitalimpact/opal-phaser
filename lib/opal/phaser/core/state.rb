@@ -1,41 +1,47 @@
+require 'pp'
+require 'opal/phaser/core/game'
 module Phaser
   class State
-    attr_writer :game
+    include Native
     def initialize(game = nil, &block)
       @game    = game
       @native  = `new Phaser.State`
 
-      @preload = proc {}
-      @create  = proc {}
-      @update  = proc {}
-      @render  = proc {}
-
       if block_given?
         block.call(@game)
       end
+      super(@native)
     end
 
-
-    def preload(&block)
-      @preload = proc { block.call(@game) }
+    def game=(g_)
+      @game = g_
+      `#@native.game = #@game`
     end
 
-    def create(&block)
-      @create = proc { block.call(@game) }
+    def game
+      @game
     end
 
-    def update(&block)
-      @update = proc { block.call(@game) }
+    def preload
     end
 
-    def render(&block)
-      @render = proc { block.call(@game) }
+    def create
+    end
+
+    def update
+    end
+
+    def render
     end
 
     def to_n
+      _preload = proc { preload }
+      _create = proc { create }
+      _update = proc { update }
+      _render = proc { render }
       %x{
-        var obj = { preload: #@preload, create: #@create, update: #@update,
-                    render: #@render }
+        var obj = { preload: #{_preload}, create: #{_create}, update: #{_update},
+                    render: #{_render} }
       }
 
       return %x{ obj }

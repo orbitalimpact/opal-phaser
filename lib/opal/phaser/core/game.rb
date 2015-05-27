@@ -28,11 +28,10 @@ module Phaser
 
       if state
         state.game = self
-      else
-        state = State.new(self)
       end
 
       if block_given?
+        state = State.new(self) if state.nil?
         state.instance_eval(&block)
       end
 
@@ -42,15 +41,16 @@ module Phaser
       }
     end
 
-    alias_native :cache,   :cache,   as: Cache
-    alias_native :add,     :add,     as: GameObjectFactory
-    alias_native :world,   :world,   as: World
-    alias_native :stage,   :stage,   as: Stage
-    alias_native :physics, :physics, as: Physics
-    alias_native :input,   :input,   as: Input
-    alias_native :time,    :time,    as: Time
-    alias_native :rnd,     :rnd,     as: RandomDataGenerator
-    alias_native :camera,  :camera,  as: Camera
+    alias_native :cache,    :cache,    as: Cache
+    alias_native :add,      :add,      as: GameObjectFactory
+    alias_native :world,    :world,    as: World
+    alias_native :stage,    :stage,    as: Stage
+    alias_native :state,    :state,    as: StateManager
+    alias_native :physics,  :physics,  as: Physics
+    alias_native :input,    :input,    as: Input
+    alias_native :time,     :time,     as: Time
+    alias_native :rnd,      :rnd,      as: RandomDataGenerator
+    alias_native :camera,   :camera,   as: Camera
 
     alias_native :make
     alias_native :load

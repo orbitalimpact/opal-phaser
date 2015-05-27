@@ -159,29 +159,26 @@ class Game
   end
 
   def run
-    preload
-    create_game
-    update_game
-
-    Phaser::Game.new(width: 800, height: 600, renderer: Phaser::AUTO, parent: '', state: state, transparent: false, antialias: true, physics: nil)
+    state = MainLevel.new
+    Phaser::Game.new(width: 800, height: 600, renderer: Phaser::AUTO, parent: '',
+                     state: state, transparent: false, antialias: true, physics: nil)
   end
+end
 
-  private
-
+class MainLevel < Phaser::State
   def preload
-    state.preload do |game|
-      initialize_entities(game)
-      entities_call :preload
-    end
+    pp game
+    puts "preload"
+    initialize_entities
+    entities_call :preload
   end
 
-  def create_game
-    state.create do
-      entities_call :create
-    end
+  def create
+    puts "create"
+    entities_call :create
   end
 
-  def update_game
+  def update
     collect_star = proc do |player, star, score|
       star = Phaser::Sprite.new(star)
       star.kill
@@ -190,20 +187,24 @@ class Game
       @score.scoreText.text = "score: #{@score.score}"
     end
 
-    state.update do |game|
-      game.physics.arcade.collide(@player.player, @platforms.platforms)
-      game.physics.arcade.collide(@star.stars, @platforms.platforms)
-      game.physics.arcade.overlap(@player.player, @star.stars, collect_star)
+    game.physics.arcade.collide(@player.player, @platforms.platforms)
+    game.physics.arcade.collide(@star.stars, @platforms.platforms)
+    game.physics.arcade.overlap(@player.player, @star.stars, collect_star)
 
-      @player.update
-    end
+    @player.update
   end
 
-  def state
-    @state ||= Phaser::State.new
+  private
+
+  def collect_star(player, star, score)
+    star = Phaser::Sprite.new(star)
+    star.kill
+
+    @score.score += 10
+    @score.scoreText.text = "score: #{@score.score}"
   end
 
-  def initialize_entities(game)
+  def initialize_entities
     @sky       = Sky.new(game)
     @platforms = Platforms.new(game)
     @player    = Player.new(game)
