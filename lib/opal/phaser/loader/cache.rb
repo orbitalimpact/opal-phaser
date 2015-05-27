@@ -1,3 +1,4 @@
+require 'opal/phaser/game_objects/image'
 module Phaser
   class Cache
     include Native
