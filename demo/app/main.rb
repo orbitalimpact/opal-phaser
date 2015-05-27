@@ -159,9 +159,9 @@ class Game
   end
 
   def run
-    state = MainLevel.new
-    Phaser::Game.new(width: 800, height: 600, renderer: Phaser::AUTO, parent: '',
-                     state: state, transparent: false, antialias: true, physics: nil)
+    game = Phaser::Game.new
+    state = MainLevel.new(game)
+    game.state.add(:main, state, true)
   end
 end
 

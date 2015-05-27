@@ -4,8 +4,8 @@ module Phaser
   class State
     include Native
     def initialize(game = nil, &block)
-      @game    = game
       @native  = `new Phaser.State`
+      self.game    = game
 
       if block_given?
         block.call(@game)

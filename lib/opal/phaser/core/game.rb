@@ -21,7 +21,7 @@ module Phaser
       height      = arg_hash.fetch(:height) { 600 }
       renderer    = arg_hash.fetch(:renderer) { Phaser::AUTO }
       parent      = arg_hash.fetch(:parent) { "" }
-      state       = arg_hash.fetch(:state) { Phaser::NilState }
+      state       = arg_hash.fetch(:state) { nil }
       transparent = arg_hash.fetch(:transparent) { false }
       antialias   = arg_hash.fetch(:antialias) { true }
       physics     = arg_hash.fetch(:physics) { nil }
