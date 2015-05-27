@@ -9,7 +9,18 @@ module Phaser
     alias_native :keyboard,       :keyboard,      as: Keyboard
     alias_native :mouse_pointer,  :mousePointer,  as: Pointer
 
-    alias_native :on_down, :onDown, as: Signal
+    def on(type, &block)
+      case type.to_sym
+      when :down
+        `#@native.onDown.add(#{block.to_n})`
+      when :up
+        `#@native.onUp.add(#{block.to_n})`
+      when :tap
+        `#@native.onTap.add(#{block.to_n})`
+      when :hold
+        `#@native.onHold.add(#{block.to_n})`
+      end
+    end
     alias_native :active_pointer, :activePointer
   end
 end
