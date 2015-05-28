@@ -37,9 +37,11 @@ class Star
     stars.enable_body = true
 
     12.times do |n|
-      star = stars.create(n * 70, 0, 'star')
+      star = @game.add.sprite(n * 70, 0, 'star')
+      @game.physics.arcade.enable(star)
       star.body.gravity.y = 6
       star.body.bounce.y = 0.7 + rand * 0.2
+      stars.add(star)
     end
   end
 end
@@ -179,17 +181,13 @@ class MainLevel < Phaser::State
   end
 
   def update
-    collect_star = proc do |player, star, score|
-      star = Phaser::Sprite.new(star)
-      star.kill
-
+    game.physics.arcade.collide(@player.player, @platforms.platforms)
+    game.physics.arcade.collide(@star.stars, @platforms.platforms)
+    game.physics.arcade.overlap(@player.player, @star.stars) do |p, s|
+      s.kill
       @score.score += 10
       @score.scoreText.text = "score: #{@score.score}"
     end
-
-    game.physics.arcade.collide(@player.player, @platforms.platforms)
-    game.physics.arcade.collide(@star.stars, @platforms.platforms)
-    game.physics.arcade.overlap(@player.player, @star.stars, collect_star)
 
     @player.update
   end
