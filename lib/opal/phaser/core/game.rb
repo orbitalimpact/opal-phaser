@@ -48,7 +48,7 @@ module Phaser
     alias_native :state,    :state,    as: StateManager
     alias_native :physics,  :physics,  as: Physics
     alias_native :input,    :input,    as: Input
-    alias_native :time,     :time,     as: Time
+    #alias_native :time,     :time,     as: Time
     alias_native :rnd,      :rnd,      as: RandomDataGenerator
     alias_native :camera,   :camera,   as: Camera
 
@@ -57,5 +57,9 @@ module Phaser
     alias_native :debug
     alias_native :width
     alias_native :stage
+    
+    def time
+      Phaser::Time.new(`#@native.time`)
+    end
   end
 end
