@@ -13,6 +13,11 @@ If you have not heard of Phaser, check out these links:
 
 Also, to get examples of opal-phaser in action, check out the [opal-phaser-examples repository](https://github.com/orbitalimpact/opal-phaser-examples).
 
+A few games made with opal-phaser:
+
+* [Flutterjump](https://github.com/orbitalimpact/flutterjump)
+* [A pong clone](https://github.com/opengamedev/pong-opal-phaser)
+
 ## Cloning this repository
 
 ```
