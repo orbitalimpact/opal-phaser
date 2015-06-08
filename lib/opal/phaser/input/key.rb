@@ -11,6 +11,14 @@ module Phaser
       end
     end
     
+    def reset(hard)
+      if hard == "hard".to_sym
+        `#@native.reset(true)`
+      else
+        `#@native.reset(false)`
+      end
+    end
+    
     alias_native :down?, :isDown
   end
 end
