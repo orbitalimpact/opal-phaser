@@ -8,6 +8,8 @@ module Phaser
 
     alias_native :target_object, :targetObject
 
+    alias_native :reset
+
     alias_native :position, :position, as: Point
   end
 end
