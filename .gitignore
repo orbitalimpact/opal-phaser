@@ -11,3 +11,6 @@ prepros.cfg
 ## Ignore demo's Gemfile.lock
 demo/Gemfile.lock
 *Gemfile.lock
+
+pkg
+build
