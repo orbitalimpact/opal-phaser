@@ -8,6 +8,7 @@ module Phaser
     alias_native :y=
     alias_native :height
     alias_native :width
+    alias_native :input
 
     alias_native :scale
     alias_native :destroy
