@@ -7,10 +7,11 @@ module Phaser
     alias_native :x=
     alias_native :y=
     alias_native :height
+    alias_native :width
 
     alias_native :scale
     alias_native :destroy
-    
+
     alias_native :load_texture, :loadTexture
 
     def smoothed=(bool)
