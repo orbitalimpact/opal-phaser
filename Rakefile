@@ -2,7 +2,10 @@ require 'bundler'
 Bundler.require
 Bundler::GemHelper.install_tasks
 
-# require 'opal/rspec/rake_task'
+require 'opal/rspec/rake_task'
+Opal::RSpec::RakeTask.new(:default) do |s|
+    s.index_path = 'spec/html/index.html.erb'
+end
 
 desc "Build build/opal-phaser.js"
 task :dist do

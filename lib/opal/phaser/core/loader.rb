@@ -40,5 +40,21 @@ module Phaser
         `#@native.onLoadStart.add(#{block.to_n}, #{context})`
       end
     end
+
+    private
+    def self.async_image(options = {}, &block)
+      that = new(game)
+      that.async_image(options = {}, &block)
+    end
+
+    def async_image(options = {}, &block)
+      override = options.fetch(:override) { false }
+      key = options.fetch(:key) { raise ArgumentError, ":key is a required argument for this method" }
+      url = options.fetch(:url) { raise ArgumentError, ":url is a required argument for this method" }
+      self.cross_origin = options[:cross_origin] if options.has_key?(:cross_origin)
+      image(key, url, override)
+      on(:load_complete, options[:context] || self, &block)
+      start
+    end
   end
 end
