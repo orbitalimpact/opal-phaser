@@ -6,6 +6,7 @@ require 'opal/phaser/core/state_manager'
 require 'opal/phaser/input/input'
 require 'opal/phaser/math/random_data_generator'
 require 'opal/phaser/core/camera'
+require 'opal/phaser/core/loader'
 
 module Phaser
   AUTO   = `Phaser.AUTO`
@@ -53,11 +54,11 @@ module Phaser
     alias_native :camera,   :camera,   as: Camera
 
     alias_native :make
-    alias_native :load
+    alias_native :load, :load, as: Loader
     alias_native :debug
     alias_native :width
     alias_native :stage
-    
+
     def time
       Phaser::Time.new(`#@native.time`)
     end
