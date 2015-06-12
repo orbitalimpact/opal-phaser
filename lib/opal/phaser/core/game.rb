@@ -58,9 +58,14 @@ module Phaser
     alias_native :debug
     alias_native :width
     alias_native :stage
+    alias_native :paused
 
     def time
       Phaser::Time.new(`#@native.time`)
+    end
+
+    def paused=(bool)
+      `#@native.paused = bool`
     end
   end
 end
