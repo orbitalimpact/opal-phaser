@@ -12,6 +12,7 @@ module Phaser
 
     alias_native :image
     alias_native :spritesheet
+    alias_native :atlas
     alias_native :start
 
     alias_native :onFileComplete
