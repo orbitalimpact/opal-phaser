@@ -6,7 +6,6 @@
 
 ## Ignore editors, tools and such:
 .idea
-prepros.cfg
 
 ## Ignore demo's Gemfile.lock
 demo/Gemfile.lock
