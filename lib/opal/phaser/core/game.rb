@@ -59,6 +59,7 @@ module Phaser
     alias_native :width
     alias_native :stage
     alias_native :paused
+    alias_native :destroy
 
     def time
       Phaser::Time.new(`#@native.time`)
