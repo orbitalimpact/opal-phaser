@@ -22,6 +22,7 @@ module Phaser
     alias_native :onLoadStart
     alias_native :atlasJSONArray
     alias_native :atlasJSONHash
+    alias_native :atlasXML
 
     alias_native :cross_origin=, :crossOrigin
 
