@@ -27,6 +27,7 @@ module Phaser
     alias_native :y
     alias_native :y=
     alias_native :width
+    alias_native :height
     alias_native :right
 
     def input_enabled=(bool)
