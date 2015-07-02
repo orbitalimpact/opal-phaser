@@ -30,6 +30,7 @@ module Phaser
     alias_native :height
     alias_native :right
 
+
     def input_enabled=(bool)
       `#@native.inputEnabled = bool`
     end
@@ -42,11 +43,24 @@ module Phaser
       `#@native.frameName = name`
     end
 
+    def auto_cull=(bool)
+      `#@native.autoCull = bool`
+    end
+
+    def check_world_bounds=(bool)
+      `#@native.checkWorldBounds = bool`
+    end
+
     alias_native :load_texture, :loadTexture
 
     alias_native :body,       :body,       as: Physics::Arcade::Body
     alias_native :anchor,     :anchor,     as: Anchor
     alias_native :animations, :animations, as: AnimationManager
     alias_native :events,     :events,     as: Events
+
+    def on(type, context, &block)
+      events.on(type, context, &block)
+    end
+
   end
 end

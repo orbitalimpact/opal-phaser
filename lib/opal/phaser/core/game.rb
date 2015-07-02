@@ -1,5 +1,6 @@
 require 'opal/phaser/loader/cache'
 require 'opal/phaser/game_objects/game_object_factory'
+require 'opal/phaser/game_objects/game_object_creator'
 require 'opal/phaser/core/world'
 require 'opal/phaser/core/stage'
 require 'opal/phaser/core/state_manager'
@@ -7,6 +8,7 @@ require 'opal/phaser/input/input'
 require 'opal/phaser/math/random_data_generator'
 require 'opal/phaser/core/camera'
 require 'opal/phaser/core/loader'
+require 'opal/phaser/core/scale_manager'
 
 module Phaser
   AUTO   = `Phaser.AUTO`
@@ -52,8 +54,9 @@ module Phaser
     #alias_native :time,     :time,     as: Time
     alias_native :rnd,      :rnd,      as: RandomDataGenerator
     alias_native :camera,   :camera,   as: Camera
+    alias_native :scale, :scale, as: ScaleManager
 
-    alias_native :make
+    alias_native :make, :make, as: GameObjectCreator
     alias_native :load, :load, as: Loader
     alias_native :debug
     alias_native :width

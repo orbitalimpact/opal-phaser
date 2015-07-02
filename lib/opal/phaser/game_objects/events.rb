@@ -16,6 +16,8 @@ module Phaser
         `#@native.onInputOut.add(#{block.to_n}, #{context})`
       when :over
         `#@native.onInputOver.add(#{block.to_n}, #{context})`
+      when :out_of_bounds
+        `#@native.onOutOfBounds.add(#{block.to_n}, #{context})`
       end
     end
   end

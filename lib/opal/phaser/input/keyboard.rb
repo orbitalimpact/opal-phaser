@@ -14,5 +14,7 @@ module Phaser
     alias_native :remove_key, :removeKey
 
     alias_native :add_key, :addKey, as: Key
+
+    alias_native :down?, :isDown
   end
 end
