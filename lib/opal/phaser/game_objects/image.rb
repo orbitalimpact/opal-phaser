@@ -1,3 +1,4 @@
+require 'opal/phaser/core/anchor'
 module Phaser
   class Image
     include Native
@@ -14,6 +15,7 @@ module Phaser
     alias_native :destroy
 
     alias_native :load_texture, :loadTexture
+    alias_native :anchor,     :anchor,     as: Anchor
 
     def smoothed=(bool)
       `#@native.smoothed = bool`
