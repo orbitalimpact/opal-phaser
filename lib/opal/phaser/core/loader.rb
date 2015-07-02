@@ -46,9 +46,10 @@ module Phaser
     end
 
     private
-    def self.async_image(options = {}, &block)
+    def self.async_image(game, options = {}, &block)
       that = new(game)
-      that.async_image(options = {}, &block)
+      that.async_image(options, &block)
+      that
     end
 
     def async_image(options = {}, &block)
