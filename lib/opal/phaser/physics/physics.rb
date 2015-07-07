@@ -31,6 +31,7 @@ module Phaser
         alias_native :velocity
         alias_native :bounce
         alias_native :touching
+        alias_native :position
         alias_native :set_size, :setSize
 
         def collide_world_bounds=(bool)
