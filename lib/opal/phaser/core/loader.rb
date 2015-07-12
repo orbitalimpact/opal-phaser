@@ -24,7 +24,8 @@ module Phaser
     alias_native :atlasJSONHash
     alias_native :atlasXML
 
-    alias_native :cross_origin=, :crossOrigin
+    alias_native :set_preload_sprite, :setPreloadSprite
+    alias_native :cross_origin=,      :crossOrigin
 
     def cross_origin=(value)
       `#@native.crossOrigin = #{value}`
