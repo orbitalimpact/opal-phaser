@@ -1,3 +1,4 @@
+require 'opal-pixi'
 if RUBY_ENGINE == 'opal'
   require 'opal/phaser/setup'
 

@@ -9,6 +9,7 @@ require 'opal/phaser/math/random_data_generator'
 require 'opal/phaser/core/camera'
 require 'opal/phaser/core/loader'
 require 'opal/phaser/core/scale_manager'
+require 'opal/phaser/pixi/web_gl_renderer'
 
 module Phaser
   AUTO   = `Phaser.AUTO`
@@ -69,6 +70,14 @@ module Phaser
 
     def paused=(bool)
       `#@native.paused = bool`
+    end
+
+    def renderer
+      if `#@native.renderer instanceof PIXI.WebGLRenderer`
+        PIXI::WebGLRenderer.new(`#@native.renderer`)
+      else
+        PIXI::CanvasRenderer.new(`#@native.renderer`)
+      end
     end
   end
 end

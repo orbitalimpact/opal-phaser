@@ -16,5 +16,7 @@ module Phaser
     alias_native :x=
     alias_native :y
     alias_native :y=
+    alias_native :set
+    alias_native :setTo, :set_to
   end
 end
