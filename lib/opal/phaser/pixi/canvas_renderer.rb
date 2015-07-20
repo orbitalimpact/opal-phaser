@@ -1,0 +1,2 @@
+class PIXI::CanvasRenderer
+end

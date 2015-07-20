@@ -10,6 +10,7 @@ require 'opal/phaser/core/camera'
 require 'opal/phaser/core/loader'
 require 'opal/phaser/core/scale_manager'
 require 'opal/phaser/pixi/web_gl_renderer'
+require 'opal/pixi/canvas_renderer'
 
 module Phaser
   AUTO   = `Phaser.AUTO`
