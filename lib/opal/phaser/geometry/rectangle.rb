@@ -1,9 +1,14 @@
 module Phaser
-  class Rectangle < `Phaser.Rectangle`
+  class Rectangle
     include Native
 
-    def self.new(x, y, w, h)
-      `new Phaser.Rectangle(x, y, w, h)`
+    def initialize(x, y, w, h)
+      super `new Phaser.Rectangle(x, y, w, h)`
     end
+
+    alias_native :x
+    alias_native :x=
+    alias_native :y
+    alias_native :y=
   end
 end
