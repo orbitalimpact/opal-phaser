@@ -62,6 +62,7 @@ module Phaser
     alias_native :load, :load, as: Loader
     alias_native :debug
     alias_native :width
+    alias_native :height
     alias_native :paused
     alias_native :destroy
 
