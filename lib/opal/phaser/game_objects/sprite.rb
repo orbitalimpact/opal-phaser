@@ -51,6 +51,14 @@ module Phaser
       `#@native.checkWorldBounds = bool`
     end
 
+    def crop(rect)
+      `#@native.crop(#{rect.to_n})`
+    end
+
+    def update_crop
+      `#@native.updateCrop()`
+    end
+
     alias_native :load_texture, :loadTexture
 
     alias_native :body,       :body,       as: Physics::Arcade::Body
