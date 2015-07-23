@@ -15,11 +15,17 @@ module Phaser
     alias_native :scale
     alias_native :destroy
 
+    alias_native :visible=
+
     alias_native :load_texture, :loadTexture
     alias_native :anchor,     :anchor,     as: Anchor
 
     def smoothed=(bool)
       `#@native.smoothed = bool`
+    end
+
+    def crop(rect)
+      `#@native.crop(#{rect.to_n})`
     end
   end
 end
