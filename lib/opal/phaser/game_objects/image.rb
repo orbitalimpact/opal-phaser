@@ -16,6 +16,7 @@ module Phaser
     alias_native :destroy
 
     alias_native :visible=
+    alias_native :kill
 
     alias_native :load_texture, :loadTexture
     alias_native :anchor,     :anchor,     as: Anchor
