@@ -3,8 +3,6 @@ require 'opal/phaser/core/anchor'
 require 'opal/phaser/animation/animation_manager'
 require 'opal/phaser/game_objects/events'
 
-require 'opal/phaser/pixi/sprite'
-
 module Phaser
   class Sprite < PIXI::Sprite
     include Native

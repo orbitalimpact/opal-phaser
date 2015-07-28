@@ -1,7 +1,5 @@
 require 'opal/phaser/core/anchor'
 
-require 'opal/phaser/pixi/sprite'
-
 module Phaser
   class Image < PIXI::Sprite
     include Native
