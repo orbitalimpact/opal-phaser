@@ -19,6 +19,7 @@ module Phaser
 
     alias_native :right
 
+    alias_native :kill
 
     def input_enabled=(bool)
       `#@native.inputEnabled = bool`

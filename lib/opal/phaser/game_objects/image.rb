@@ -6,5 +6,6 @@ module Phaser
 
     alias_native :input
     alias_native :name
+    alias_native :kill
   end
 end
