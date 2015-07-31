@@ -12,6 +12,7 @@ module Phaser
     alias_native :bounce
 
     alias_native :play
+    alias_native :crop
 
     alias_native :exists=
     alias_native :alive=
