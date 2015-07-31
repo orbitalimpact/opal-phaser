@@ -8,6 +8,8 @@ module Phaser
     alias_native :name
     alias_native :kill
 
+    alias_native :smoothed=
+
     alias_native :load_texture, :loadTexture
   end
 end

@@ -16,6 +16,7 @@ module Phaser
     alias_native :exists=
     alias_native :alive=
     alias_native :frame=
+    alias_native :smoothed=
 
     alias_native :right
 
