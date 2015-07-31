@@ -41,6 +41,8 @@ module Phaser
       `#@native.updateCrop()`
     end
 
+    alias_native :load_texture, :loadTexture
+
     alias_native :body,       :body,       as: Physics::Arcade::Body
     alias_native :animations, :animations, as: AnimationManager
     alias_native :events,     :events,     as: Events

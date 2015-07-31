@@ -7,5 +7,7 @@ module Phaser
     alias_native :input
     alias_native :name
     alias_native :kill
+
+    alias_native :load_texture, :loadTexture
   end
 end
