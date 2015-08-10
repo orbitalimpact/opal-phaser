@@ -11,10 +11,17 @@ If you have not heard of Phaser, check out these links:
 * Phaser: https://github.com/photonstorm/phaser
 * Phaser Examples: https://github.com/photonstorm/phaser-examples
 
-Also, to get examples of opal-phaser in action, check out the [opal-phaser-examples repository](https://github.com/orbitalimpact/opal-phaser-examples).
+## Projects built with opal-phaser
 
-A few games made with opal-phaser:
+### Examples
 
+Phaser usage examples converted to Ruby: https://github.com/orbitalimpact/opal-phaser-examples.
+
+### Games
+
+Some of the games that have been made so far with opal-phaser:
+
+* [Official demo](https://github.com/orbitalimpact/opal-phaser/tree/master/demo)
 * [Flutterjump](https://github.com/orbitalimpact/flutterjump)
 * [A pong clone](https://github.com/opengamedev/pong-opal-phaser)
 
