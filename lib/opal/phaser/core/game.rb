@@ -81,5 +81,9 @@ module Phaser
         PIXI::CanvasRenderer.new(`#@native.renderer`)
       end
     end
+
+    def is_booted?
+      `#@native.isBooted`
+    end
   end
 end
