@@ -8,7 +8,6 @@ module Phaser
     include Native
 
     alias_native :key
-    alias_native :scale
     alias_native :bounce
 
     alias_native :play
