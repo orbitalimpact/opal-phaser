@@ -89,7 +89,7 @@ class Platforms
 
   def create_ground
     ground = @platforms.create(0, @game.world.height - 64, @sprite_key)
-    ground.scale.setTo(2, 2)
+    ground.scale.set(2, 2)
     ground.body.immovable = true
   end
 
