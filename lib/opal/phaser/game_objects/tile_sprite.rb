@@ -1,6 +1,6 @@
 require 'opal/phaser/geometry/point'
 module Phaser
-  class TileSprite
+  class TileSprite < PIXI::Extras::TilingSprite
     include Native
 
     alias_native :auto_scroll, :autoScroll
