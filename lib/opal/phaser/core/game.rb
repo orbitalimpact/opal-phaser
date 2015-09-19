@@ -56,7 +56,7 @@ module Phaser
     #alias_native :time,     :time,     as: Time
     alias_native :rnd,      :rnd,      as: RandomDataGenerator
     alias_native :camera,   :camera,   as: Camera
-    alias_native :scale, :scale, as: ScaleManager
+    alias_native :scale, :scale,       as: ScaleManager
 
     alias_native :make, :make, as: GameObjectCreator
     alias_native :load, :load, as: Loader
