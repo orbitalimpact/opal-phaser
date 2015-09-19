@@ -6,6 +6,7 @@ require 'opal/phaser/game_objects/bitmap_data'
 require 'opal/phaser/tween/tween'
 require 'opal/phaser/game_objects/tile_sprite'
 require 'opal/phaser/game_objects/button'
+require 'opal/phaser/sound/sound'
 
 module Phaser
   class GameObjectFactory
@@ -19,5 +20,6 @@ module Phaser
     alias_native :tween,       :tween,      as: Tween
     alias_native :tile_sprite, :tileSprite, as: TileSprite
     alias_native :button,      :button,     as: Button
+    alias_native :audio,       :audio,      as: Sound
   end
 end

@@ -14,6 +14,7 @@ module Phaser
     alias_native :spritesheet
     alias_native :atlas
     alias_native :start
+    alias_native :audio
 
     alias_native :onFileComplete
     alias_native :onFileError
