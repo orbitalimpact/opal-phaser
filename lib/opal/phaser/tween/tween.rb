@@ -5,15 +5,15 @@ module Phaser
     alias_native :start
 
     def to(args = {})
-      properties = args[:properties].to_n
-      duration   = args[:duration, 1000]
-      ease       = args[:ease, nil]
-      auto_start = args[:auto_start, false]
-      delay      = args[:delay, 0]
-      repeat     = args[:repeat, 0]
-      yoyo       = args[:yoyo, false]
+      optional_args = {duration: 1000, ease: Phaser::Easing.Default, auto_start: false, delay: 0, repeat: 0, yoyo: false}
       
-      `#@native.to(properties, duration, ease, auto_start, delay, repeat, yoyo)`
+      optional_args.each do |optional_arg, value|
+        unless args.include?(optional_arg)
+          args[optional_arg] = default_value
+        end
+      end
+      
+      `#@native.to(#{args[:properties].to_n}, #{args[:duration]}, #{args[:ease]}, #{args[:auto_start]}, #{args[:delay]}, #{args[:repeat]}, #{args[:yoyo]})`
     end
 
     def on(type, context = nil, &block)

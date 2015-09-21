@@ -16,13 +16,15 @@ module Phaser
     end
 
     def self.generate_frame_names(args = {})
-      prefix        = args[:prefix]
-      start_num     = args[:start_num]
-      stop_num      = args[:stop_num]
-      suffix        = args[:suffix, ""]
-      zeros_padding = args[:zeros_padding, 0]
+      optional_args = {suffix: "", zeros_padding: 0}
       
-      `Phaser.Animation.generateFrameNames(prefix, start_num, stop_num, suffix, zeros_padding)`
+      optional_args.each do |optional_arg, default_value|
+        unless args.include?(optional_arg)
+          args[optional_arg] = default_value
+        end
+      end
+      
+      `Phaser.Animation.generateFrameNames(#{args[:prefix]}, #{args[:start_num]}, #{args[:stop_num]}, #{args[:suffix]}, #{args[:zeros_padding]})`
     end
 
     alias_native :is_playing?, :isPlaying
