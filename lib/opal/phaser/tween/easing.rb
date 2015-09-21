@@ -13,5 +13,11 @@ module Phaser
         `Phaser.Easing.Quadratic.Out`
       end
     end
+    
+    module Linear
+      def self.None
+        `Phaser.Easing.Linear.None`
+      end
+    end
   end
 end
