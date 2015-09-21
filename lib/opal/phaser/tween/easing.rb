@@ -1,5 +1,9 @@
 module Phaser
   module Easing
+    def self.Default
+      `Phaser.Easing.Default`
+    end
+    
     module Quadratic
       def self.In
         `Phaser.Easing.Quadratic.In`
