@@ -24,6 +24,7 @@ Some of the games that have been made so far with opal-phaser:
 * [Official demo](https://github.com/orbitalimpact/opal-phaser/tree/master/demo)
 * [Flutterjump](https://github.com/orbitalimpact/flutterjump)
 * [A pong clone](https://github.com/opengamedev/pong-opal-phaser)
+* [Tankgame](https://github.com/tangentstorm/tankgame)
 
 ## Cloning this repository
 
