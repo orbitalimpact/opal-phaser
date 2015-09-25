@@ -6,13 +6,13 @@ module Phaser
 
     def to(args = {})
       optional_args = {duration: 1000, ease: Phaser::Easing.Default, auto_start: false, delay: 0, repeat: 0, yoyo: false}
-      
-      optional_args.each do |optional_arg, value|
+
+      optional_args.each do |optional_arg, default_value|
         unless args.include?(optional_arg)
           args[optional_arg] = default_value
         end
       end
-      
+
       `#@native.to(#{args[:properties].to_n}, #{args[:duration]}, #{args[:ease]}, #{args[:auto_start]}, #{args[:delay]}, #{args[:repeat]}, #{args[:yoyo]})`
     end
 
