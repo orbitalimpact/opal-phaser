@@ -13,7 +13,7 @@ module Phaser
         end
       end
 
-      `#@native.to(#{args[:properties].to_n}, #{args[:duration]}, #{args[:ease]}, #{args[:auto_start]}, #{args[:delay]}, #{args[:repeat]}, #{args[:yoyo]})`
+      Tween.new `#@native.to(#{args[:properties].to_n}, #{args[:duration]}, #{args[:ease]}, #{args[:auto_start]}, #{args[:delay]}, #{args[:repeat]}, #{args[:yoyo]})`
     end
 
     def on(type, context = nil, &block)
