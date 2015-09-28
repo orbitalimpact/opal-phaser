@@ -7,9 +7,9 @@ module Phaser
     def to(args = {})
       optional_args = {duration: 1000, ease: Phaser::Easing.Default, auto_start: false, delay: 0, repeat: 0, yoyo: false}
 
-      optional_args.each do |optional_arg, default_value|
-        unless args.include?(optional_arg)
-          args[optional_arg] = default_value
+      optional_args.each do |name, default_value|
+        unless args.include?(name)
+          args[name] = default_value
         end
       end
 
