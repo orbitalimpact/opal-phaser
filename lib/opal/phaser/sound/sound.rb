@@ -15,5 +15,6 @@ module Phaser
     end
     
     alias_native :stop
+    alias_native :destroy
   end
 end
