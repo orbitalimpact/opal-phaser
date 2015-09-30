@@ -61,6 +61,7 @@ module Phaser
     alias_native :make, :make, as: GameObjectCreator
     alias_native :load, :load, as: Loader
     alias_native :debug
+    alias_native :device
     alias_native :width
     alias_native :height
     alias_native :paused
