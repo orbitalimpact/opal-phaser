@@ -16,5 +16,7 @@ module Phaser
     
     alias_native :stop
     alias_native :destroy
+    
+    alias_native :fade_in, :fadeIn
   end
 end
