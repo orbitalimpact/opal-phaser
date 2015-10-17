@@ -6,9 +6,9 @@ Gem::Specification.new do |s|
   s.version      = Opal::Phaser::VERSION
   s.author       = 'George Plymale'
   s.email        = 'george@orbitalimpact.com'
-  s.homepage     = 'http://github.com/orbitalimpact/opal-phaser'
-  s.summary      = 'Opal access to phaser'
-  s.description  = 'Opal DOM library for phaser'
+  s.homepage     = 'http://opalphaser.com'
+  s.summary      = 'Ruby access to Phaser'
+  s.description  = 'Opal wrapper library for the Phaser framework'
 
   s.files          = `git ls-files`.split("\n")
   s.executables    = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
