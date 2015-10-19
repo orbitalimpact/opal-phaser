@@ -1,5 +1,5 @@
 module Opal
   module Phaser
-    VERSION = '0.3.0'
+    VERSION = '0.4.5'
   end
 end
