@@ -1,7 +1,7 @@
 require 'opal/phaser/native_helpers'
 
 module Phaser
-
+  # The base Animation object that the Animation Manager creates.
   class Animation
     include Native
 
@@ -17,100 +17,99 @@ module Phaser
     # @param loop [Boolean] Whether or not the animation is looped or just plays once.
     # @return [Animation]
 
-    # @!attribute [rw] game
+    # @!attribute  game
     #   @return [Phaser.Game] A reference to the currently running Game.
     native_accessor :game
 
-    # @!attribute [rw] _parent
+    # @!attribute  _parent
     #   @return [Phaser.Sprite] A reference to the parent Sprite that owns this Animation.
-    #   @private
+    #   @!visibility private
     native_accessor :_parent
 
-    # @!attribute [rw] _frame_data
+    # @!attribute  _frame_data
     #   @return [Phaser.FrameData] The FrameData the Animation uses.
-    # @private
-    #
+    #   @!visibility private
     native_accessor_alias :_frame_data, :_frameData
 
-    # @!attribute [rw] name
+    # @!attribute  name
     #   @return [String] The user defined name given to this Animation.
     native_accessor :name
 
-    # # @!attribute [rw] _frames
-    # #   @return [array]
-    # # @private
+    # @!attribute  _frames
+    #   @return [array]
+    #   @!visibility private
     native_accessor :_frames
 
-    # @!attribute [rw] delay
+    # @!attribute  delay
     #   @return [Number] The delay in ms between each frame of the Animation, based on the given frame_rate.
     native_accessor :delay
 
-    # @!attribute [rw] loop
+    # @!attribute  loop
     #   @return [Boolean] The loop state of the Animation.
     native_accessor :loop
 
-    # @!attribute [rw] loop_count
+    # @!attribute  loop_count
     #   @return [Number] The number of times the Animation has looped since it was last started.
     native_accessor_alias :loop_count, :loopCount
 
-    # @!attribute [rw] kill_on_complete
+    # @!attribute  kill_on_complete
     #   @return [Boolean] Should the parent of this Animation be killed when the animation completes?
     native_accessor_alias :kill_on_complete, :killOnComplete
 
-    # @!attribute [rw] is_finished
+    # @!attribute  is_finished
     #   @return [Boolean] The finished state of the Animation. Set to true once playback completes, false during playback.
     native_accessor_alias :is_finished, :isFinished
 
-    # @!attribute [rw] is_playing
+    # @!attribute  is_playing
     #   @return [Boolean] The playing state of the Animation. Set to false once playback completes, true during playback.
     native_accessor_alias :is_playing, :isPlaying
 
     # @!attribute [r] is_playing?
     #   @return [Boolean] The playing state of the Animation. Set to false once playback completes, true during playback.
     # legacy
+    # @see is_playing
     native_reader_alias :is_playing?, :isPlaying
 
-    # @!attribute [rw] is_paused
+    # @!attribute  is_paused
     #   @return [Boolean] The paused state of the Animation.
     native_accessor_alias :is_paused, :isPaused
 
-    # @!attribute [rw] _pause_start_time
+    # @!attribute  _pause_start_time
     #   @return [Boolean] The time the Animation paused.
-    # @private
+    #   @!visibility private
     native_accessor_alias :_pause_start_time, :_pauseStartTime
 
-    # @!attribute [rw] _frame_index
+    # @!attribute  _frame_index
     #   @return [Number]
-    # @private
+    #   @!visibility private
     native_accessor_alias :_frame_index, :_frameIndex
 
-    # @!attribute [rw] _frame_diff
+    # @!attribute  _frame_diff
     #   @return [Number]
-    # @private
+    #   @!visibility private
     native_accessor_alias :_frame_diff, :_frameDiff
 
-    # @!attribute [rw] _frame_skip
+    # @!attribute  _frame_skip
     #   @return [Number]
-    # @private
+    #   @!visibility private
     native_accessor_alias :frame_skip, :_frameSkip
 
-    # @!attribute [rw] current_frame
+    # @!attribute  current_frame
     #   @return [Phaser.Frame] The currently displayed frame of the Animation.
     native_accessor_alias :current_frame, :currentFrame
 
-    # @!attribute [rw] on_start
+    # @!attribute  on_start
     # @return [Phaser.Signal] This event is dispatched when this Animation starts playback.
     native_accessor_alias :on_start, :onStart
 
-    # @!attribute [rw] on_update
+    # @!attribute  on_update
     # This event is dispatched when the Animation changes frame.
     # By default this event is disabled due to its intensive nature. Enable it with: `Animation.enable_update = true`.
     # @return [Phaser.Signal, null]
     native_accessor_alias :on_update, :onUpdate
 
-    # @!attribute [rw] on_complete
+    # @!attribute  on_complete
     #   @return [Phaser.Signal] This event is dispatched when this Animation completes playback. If the Animation is set to loop this is never fired, listen for on_loop instead.
-    #
     native_accessor_alias :on_complete, :onComplete
 
     # @!method on_completion
@@ -118,7 +117,7 @@ module Phaser
     # legacy
     native_accessor_alias :on_completion, :onComplete
 
-    # @!attribute [rw] on_loop
+    # @!attribute  on_loop
     #   @return [Phaser.Signal] This event is dispatched when this Animation loops.
     native_accessor_alias :on_loop, :onLoop
 
@@ -168,7 +167,7 @@ module Phaser
     # and triggers the update signal.
     #
     # Returns true if the current frame update was 'successful', false otherwise.
-    # @private
+    #   @!visibility private
     # @param [Boolean] signal_update - If true the `Animation.onUpdate` signal will be dispatched.
     # @param [Boolean] from_play - Was this call made from the playing of a new animation?
     # @return [Boolean] True if the current frame was updated, otherwise false.
@@ -202,7 +201,7 @@ module Phaser
     # Prototype constructor
     ##
 
-    # @!attribute [rw] paused
+    # @!attribute  paused
     # @return [Boolean] Gets and sets the paused state of this Animation.
     native_accessor :paused
 
@@ -210,15 +209,15 @@ module Phaser
     # @return [Number] The total number of frames in the currently loaded FrameData, or -1 if no FrameData is loaded.
     native_reader_alias :frame_total, :frame_Total
 
-    # @!attribute [rw] frame
+    # @!attribute  frame
     # @return [Number] Gets or sets the current frame index and updates the Texture Cache for display.
     native_accessor :frame
 
-    # @!attribute [rw] speed
+    # @!attribute  speed
     # @return [Number] Gets or sets the current speed of the animation in frames per second. Changing this in a playing animation will take effect from the next frame. Minimum value is 1.
     native_accessor :speed
 
-    # @!attribute [rw] enable_update
+    # @!attribute  enable_update
     # @return [Boolean] Gets or sets if this animation will dispatch the on_update events upon changing frame.
     native_accessor_alias :enable_update, :enableUpdate
 
