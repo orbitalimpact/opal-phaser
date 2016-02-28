@@ -24,6 +24,7 @@ module Phaser
     alias_native :atlasJSONArray
     alias_native :atlasJSONHash
     alias_native :atlasXML
+    alias_native :atlas_xml, :atlasXML
 
     alias_native :set_preload_sprite, :setPreloadSprite
     alias_native :cross_origin=,      :crossOrigin
