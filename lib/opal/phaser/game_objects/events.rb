@@ -18,6 +18,8 @@ module Phaser
         `#@native.onInputOver.add(#{block.to_n}, #{context})`
       when :out_of_bounds
         `#@native.onOutOfBounds.add(#{block.to_n}, #{context})`
+      else
+        raise ArgumentError, "Unrecognized event type #{type}"
       end
     end
   end
