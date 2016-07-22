@@ -23,6 +23,8 @@ module Phaser
           `#@native.onTap.add(#{block.to_n})`
         when :hold
           `#@native.onHold.add(#{block.to_n})`
+        else
+          raise ArgumentError, "Unrecognized event type #{type}"
         end
       else
         Signal.new

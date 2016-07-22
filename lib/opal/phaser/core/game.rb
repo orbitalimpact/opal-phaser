@@ -11,6 +11,7 @@ require 'opal/phaser/core/loader'
 require 'opal/phaser/core/scale_manager'
 require 'opal/phaser/pixi/web_gl_renderer'
 require 'opal/pixi/canvas_renderer'
+require 'opal/phaser/core/math'
 
 module Phaser
   AUTO   = `Phaser.AUTO`
@@ -57,6 +58,7 @@ module Phaser
     alias_native :rnd,      :rnd,      as: RandomDataGenerator
     alias_native :camera,   :camera,   as: Camera
     alias_native :scale, :scale,       as: ScaleManager
+    alias_native :math, :math, as: Phaser::Math
 
     alias_native :make, :make, as: GameObjectCreator
     alias_native :load, :load, as: Loader

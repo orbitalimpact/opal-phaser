@@ -45,6 +45,8 @@ module Phaser
         `#@native.onLoadComplete.add(#{block.to_n}, #{context})`
       when :load_start
         `#@native.onLoadStart.add(#{block.to_n}, #{context})`
+      else
+        raise ArgumentError, "Unrecognized event type #{type}"
       end
     end
 
