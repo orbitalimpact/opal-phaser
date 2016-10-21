@@ -11,10 +11,10 @@ module Phaser
     # A scale mode that shows the entire game while maintaining proportions
     SHOW_ALL = 2;
 
-    # A scale mode that causes the Game size to change - see {@link Phaser.ScaleManager#scaleMode scaleMode}.
+    # A scale mode that causes the Game size to change
     RESIZE = 3;
 
-    # A scale mode that allows a custom scale factor - see {@link Phaser.ScaleManager#scaleMode scaleMode}.
+    # A scale mode that allows a custom scale factor
     USER_SCALE = 4;
 
     alias_native :scale_mode, :scaleMode

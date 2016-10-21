@@ -28,6 +28,8 @@ module Phaser
         `#@native.onRepeat.add(#{block.to_n}, #{context})`
       when start
         `#@native.onStart.add(#{block.to_n}, #{context})`
+      else
+        raise ArgumentError, "Unrecognized event type #{type}"
       end
     end
   end

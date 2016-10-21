@@ -3,6 +3,7 @@
 /_yardoc/
 /doc/
 /rdoc/
+/demo/.bundle
 
 ## Ignore editors, tools and such:
 .idea

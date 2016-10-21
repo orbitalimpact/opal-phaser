@@ -24,6 +24,7 @@ module Phaser
     alias_native :atlasJSONArray
     alias_native :atlasJSONHash
     alias_native :atlasXML
+    alias_native :atlas_xml, :atlasXML
 
     alias_native :set_preload_sprite, :setPreloadSprite
     alias_native :cross_origin=,      :crossOrigin
@@ -44,6 +45,8 @@ module Phaser
         `#@native.onLoadComplete.add(#{block.to_n}, #{context})`
       when :load_start
         `#@native.onLoadStart.add(#{block.to_n}, #{context})`
+      else
+        raise ArgumentError, "Unrecognized event type #{type}"
       end
     end
 

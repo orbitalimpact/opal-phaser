@@ -17,7 +17,6 @@ describe Phaser::Loader do
       load.async_image({ key: "test", url: "common/images/logo.png"}) do
         run_async { expect(game.cache.check_image("test")).to be_truthy }
       end
-
     end
   end
 end
