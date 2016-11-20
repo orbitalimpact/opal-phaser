@@ -138,10 +138,10 @@ class Player
     player.body.velocity.x = 0
 
     case
-    when cursors.left.isDown
+    when cursors.left.down?
       player.body.velocity.x = -150
       player.animations.play('left')
-    when cursors.right.isDown
+    when cursors.right.down?
       player.body.velocity.x = 150
       player.animations.play('right')
     else
@@ -149,7 +149,7 @@ class Player
       player.frame = 4
     end
 
-    if cursors.up.isDown && player.body.touching.down
+    if cursors.up.down? && player.body.touching.down
       player.body.velocity.y = -350
     end
   end
