@@ -52,5 +52,11 @@ module Phaser
       events.on(type, context, &block)
     end
 
+    alias_native :add_child, :addChild
+    native_accessor :angle
+    native_accessor :frame
+    native_accessor :name
+    native_accessor_alias :fixed_to_camera, :fixedToCamera
+    native_accessor :key
   end
 end

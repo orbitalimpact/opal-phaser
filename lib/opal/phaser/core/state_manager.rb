@@ -4,5 +4,6 @@ module Phaser
 
     alias_native :add
     alias_native :start
+    alias_native :restart
   end
 end

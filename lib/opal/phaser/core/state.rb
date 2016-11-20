@@ -22,6 +22,9 @@ module Phaser
       @game
     end
 
+    def init(*)
+    end
+
     def preload
     end
 
@@ -39,9 +42,10 @@ module Phaser
       _create = proc { create }
       _update = proc { update }
       _render = proc { render }
+      _init = proc {|*args| init(*args) }
       %x{
         var obj = { preload: #{_preload}, create: #{_create}, update: #{_update},
-                    render: #{_render} }
+                    render: #{_render}, init: #{_init} }
       }
 
       return %x{ obj }

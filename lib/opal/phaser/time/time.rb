@@ -6,6 +6,7 @@ module Phaser
     alias_native :fps
     alias_native :physics_elapsed, :physicsElapsed
     alias_native :physics_elapsed_ms, :physicsElapsedMS
+    alias_native :now
     
     def advanced_timing=(bool)
       `#@native.advancedTiming = bool`

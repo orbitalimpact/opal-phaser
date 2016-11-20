@@ -11,5 +11,10 @@ module Phaser
     alias_native :reset
 
     alias_native :position, :position, as: Point
+
+    native_accessor_alias :world_x, :worldX
+    native_accessor_alias :world_y, :worldY
+    alias_native :x
+    alias_native :y
   end
 end

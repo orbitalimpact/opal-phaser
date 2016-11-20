@@ -1,3 +1,4 @@
+require 'opal/phaser/native_helpers'
 module Phaser
   class Physics
     include Native
@@ -11,6 +12,7 @@ module Phaser
       alias_native :distance_to_pointer, :distanceToPointer
       alias_native :move_to_pointer,     :moveToPointer
       alias_native :check_collision,     :checkCollision
+      alias_native :enable_body, :enableBody
 
       def overlap(object1, object2, &block)
         wrapper = nil
@@ -33,6 +35,9 @@ module Phaser
         alias_native :touching
         alias_native :position
         alias_native :set_size, :setSize
+        alias_native :on_floor?, :onFloor
+        alias_native :blocked
+        native_accessor_alias :max_velocity, :maxVelocity
 
         def collide_world_bounds=(bool)
           `#@native.collideWorldBounds = bool`
@@ -52,6 +57,5 @@ module Phaser
     alias_native :start_system, :startSystem
     alias_native :arcade, :arcade, as: Arcade
     alias_native :enable
-
   end
 end

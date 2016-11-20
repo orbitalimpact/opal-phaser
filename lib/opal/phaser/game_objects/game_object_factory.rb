@@ -9,6 +9,7 @@ require 'opal/phaser/game_objects/button'
 require 'opal/phaser/sound/sound'
 require 'opal/phaser/game_objects/graphics'
 require 'opal/phaser/game_objects/emitter'
+require 'opal/phaser/game_objects/rope'
 
 module Phaser
   class GameObjectFactory
@@ -25,5 +26,7 @@ module Phaser
     alias_native :audio,       :audio,      as: Sound
     alias_native :graphics,    :graphics,   as: Graphics
     alias_native :emitter,     :emitter,    as: Emitter
+    alias_native :rope,        :rope,       as: Rope
+    alias_native :bitmap_text, :bitmapText
   end
 end

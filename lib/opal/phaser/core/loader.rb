@@ -28,6 +28,7 @@ module Phaser
 
     alias_native :set_preload_sprite, :setPreloadSprite
     alias_native :cross_origin=,      :crossOrigin
+    alias_native :bitmap_font, :bitmapFont
 
     def cross_origin=(value)
       `#@native.crossOrigin = #{value}`
