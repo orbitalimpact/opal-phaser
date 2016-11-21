@@ -1,5 +1,6 @@
 require 'opal/phaser/input/keyboard'
 require 'opal/phaser/input/pointer'
+require 'opal/phaser/input/mouse_event'
 require 'opal/phaser/core/signal'
 
 module Phaser
@@ -13,16 +14,22 @@ module Phaser
     alias_native :mouse_pointer,  :mousePointer,  as: Pointer
 
     def on(type, &block)
+      cast_and_yield = proc do |pointer, event|
+        pointer = Phaser::Pointer.new(pointer)
+        event = event && Phaser::MouseEvent.new(event)
+        block.call(pointer, event)
+      end
+
       if block_given?
         case type.to_sym
         when :down
-          `#@native.onDown.add(#{block.to_n})`
+          `#@native.onDown.add(#{cast_and_yield.to_n})`
         when :up
-          `#@native.onUp.add(#{block.to_n})`
+          `#@native.onUp.add(#{cast_and_yield.to_n})`
         when :tap
-          `#@native.onTap.add(#{block.to_n})`
+          `#@native.onTap.add(#{cast_and_yield.to_n})`
         when :hold
-          `#@native.onHold.add(#{block.to_n})`
+          `#@native.onHold.add(#{cast_and_yield.to_n})`
         else
           raise ArgumentError, "Unrecognized event type #{type}"
         end
@@ -30,6 +37,6 @@ module Phaser
         Signal.new
       end
     end
-    alias_native :active_pointer, :activePointer
+    alias_native :active_pointer, :activePointer, as: Pointer
   end
 end

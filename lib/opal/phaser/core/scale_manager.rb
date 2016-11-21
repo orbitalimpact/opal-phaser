@@ -20,6 +20,9 @@ module Phaser
     alias_native :scale_mode, :scaleMode
     alias_native :refresh
 
+    native_accessor_alias :page_align_horizontally, :pageAlignHorizontally
+    native_accessor_alias :page_align_vertically, :pageAlignVertically
+
     def scale_mode=(mode)
       `#@native.scaleMode = #{mode}`
     end
