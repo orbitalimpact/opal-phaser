@@ -8,7 +8,7 @@ If you haven't yet, clone the the repository as explained in the
 ```
 cd demo
 bundle
-rackup
+rackup # you may need to prepend this with `bundle exec`
 ```
 
 and go to localhost:9292 (or whatever the server says)
